@@ -3,54 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine<T> where T : System.Enum
 {
-    public enum States
-    {
-        NONE,
-    }
 
-
-    public Dictionary<States, StateBase> DictionaryState;
+    public Dictionary<T, StateBase> DictionaryState;
 
     private StateBase _currentState;
     public float timeToStartGame = 1f;
 
-    private void Awake()
+    public StateBase CurrentState
     {
-        DictionaryState = new Dictionary<States, StateBase>();
-        DictionaryState.Add(States.NONE, new StateBase());
-
-        SwitchStates(States.NONE);
-
-        Invoke(nameof(StartGame), timeToStartGame);
+        get { return _currentState; }
     }
 
-    [Button]
-    private void StartGame()
+    public void Init()
     {
-        SwitchStates(States.NONE);
+        DictionaryState = new Dictionary<T, StateBase>();
     }
 
-#if UNITY_EDITOR
-    #region DEBUG
-    [Button]
-    private void ChangeStateToStatNone()
+    public void RegisterStates(T typeEnum, StateBase state)
     {
-        SwitchStates(States.NONE);
-
+        DictionaryState.Add(typeEnum, state);
     }
 
-    [Button]
-    private void ChangeStateToStatNone2()
-    {
-        SwitchStates(States.NONE);
-
-    }
-    #endregion
-#endif
-
-    public void SwitchStates(States state)
+    public void SwitchStates(T state)
     {
         if (_currentState != null) _currentState.OnStateExit();
 
@@ -60,15 +36,37 @@ public class StateMachine : MonoBehaviour
     }
 
 
-    private void Update()
+    public void Update()
     {
         if (_currentState != null) _currentState.OnStateStay();
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            // SwitchStates(States.DEAD);
-        }
     }
+
+
+
+
+
+
+
+
+
+
+    //#if UNITY_EDITOR
+    //    #region DEBUG
+    //    [Button]
+    //    private void ChangeStateToStatNone()
+    //    {
+    //        // SwitchStates(States.NONE);
+
+    //    }
+
+    //    [Button]
+    //    private void ChangeStateToStatNone2()
+    //    {
+    //        //  SwitchStates(States.NONE);
+
+    //    }
+    //    #endregion
+    //#endif
 }
 
 
