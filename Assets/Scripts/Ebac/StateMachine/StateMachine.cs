@@ -53,23 +53,23 @@ namespace Ebac.StateMachine
 
 
 
-        //#if UNITY_EDITOR
-        //    #region DEBUG
-        //    [Button]
-        //    private void ChangeStateToStatNone()
-        //    {
-        //        // SwitchStates(States.NONE);
+//#if UNITY_EDITOR
+//        #region DEBUG
+//        [Button]
+//        private void ChangeStateToStatNone()
+//        {
+//            // SwitchStates(States.NONE);
 
-        //    }
+//        }
 
-        //    [Button]
-        //    private void ChangeStateToStatNone2()
-        //    {
-        //        //  SwitchStates(States.NONE);
+//        [Button]
+//        private void ChangeStateToStatNone2()
+//        {
+//            //  SwitchStates(States.NONE);
 
-        //    }
-        //    #endregion
-        //#endif
+//        }
+//        #endregion
+//#endif
     }
 
 
