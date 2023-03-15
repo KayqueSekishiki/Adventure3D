@@ -17,6 +17,11 @@ public class Player : Singleton<Player>
 
     public StateMachine<PlayerStates> stateMachine;
 
+    public float speed;
+    public float jumpForce;
+    private Rigidbody _rigidbody;
+
+
     private void Start()
     {
         Init();
@@ -33,7 +38,34 @@ public class Player : Singleton<Player>
         stateMachine.RegisterStates(PlayerStates.JUMP, new global::PlayerStates.PlayerStatesJump());
 
         stateMachine.SwitchStates(PlayerStates.IDLE);
+
+
+        _rigidbody = GetComponent<Rigidbody>();
+
+
+
+
+
+
     }
+
+    public void Move()
+    {
+        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, speed);
+    }
+
+    public void Stop()
+    {
+        _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y);
+    }
+    public void Jump()
+    {
+        _rigidbody.velocity = jumpForce * Vector2.up;
+    }
+
+
+
+
 
 #if UNITY_EDITOR
     #region DEBUG

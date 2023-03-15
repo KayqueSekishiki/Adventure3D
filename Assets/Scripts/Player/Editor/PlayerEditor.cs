@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEditor;
 
-[CustomEditor(typeof(Player))]
+//[CustomEditor(typeof(Player))]
 public class PlayerEditor : Editor
 {
     public bool showFoldout;
