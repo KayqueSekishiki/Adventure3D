@@ -7,19 +7,10 @@ using NaughtyAttributes;
 
 public class Player : Singleton<Player>
 {
-    public enum PlayerStates
-    {
-        IDLE,
-        WALK,
-        STOP,
-        JUMP
-    }
-
-    public StateMachine<PlayerStates> stateMachine;
-
     public float speed;
     public float jumpForce;
     private Rigidbody _rigidbody;
+    private CharacterController _characterController;
 
 
     private void Start()
@@ -29,28 +20,20 @@ public class Player : Singleton<Player>
 
     public void Init()
     {
-        stateMachine = new StateMachine<PlayerStates>();
-
-        stateMachine.Init();
-        stateMachine.RegisterStates(PlayerStates.IDLE, new global::PlayerStates.PlayerStatesIdle());
-        stateMachine.RegisterStates(PlayerStates.WALK, new global::PlayerStates.PlayerStatesWalk());
-        stateMachine.RegisterStates(PlayerStates.STOP, new global::PlayerStates.PlayerStatesStop());
-        stateMachine.RegisterStates(PlayerStates.JUMP, new global::PlayerStates.PlayerStatesJump());
-
-        stateMachine.SwitchStates(PlayerStates.IDLE);
-
-
         _rigidbody = GetComponent<Rigidbody>();
+        _characterController = GetComponent<CharacterController>();
+    }
 
+    private void Update()
+    {
+        var speedVector = transform.forward * Input.GetAxis("Vertical") * speed;
 
-
-
-
-
+        _characterController.Move(speedVector * Time.deltaTime);
     }
 
     public void Move()
     {
+
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, speed);
     }
 
@@ -65,35 +48,4 @@ public class Player : Singleton<Player>
 
 
 
-
-
-#if UNITY_EDITOR
-    #region DEBUG
-    [Button]
-    private void ChangeStateToStateIdle()
-    {
-        stateMachine.SwitchStates(PlayerStates.IDLE);
-    }
-
-    [Button]
-    private void ChangeStateToStateWalk()
-    {
-        stateMachine.SwitchStates(PlayerStates.WALK);
-    }
-
-    [Button]
-    private void ChangeStateToStateStop()
-    {
-        stateMachine.SwitchStates(PlayerStates.STOP);
-    }
-
-    [Button]
-    private void ChangeStateToStateJump()
-    {
-        stateMachine.SwitchStates(PlayerStates.JUMP);
-    }
-    #endregion
-#endif
 }
-
-
