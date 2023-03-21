@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cc5b0000
-      m_LastClickedID: 23500
-      m_ExpandedIDs: 16fbffffbe5a0000c65a0000685c0000
+      m_SelectedIDs: f66fffff
+      m_LastClickedID: -36874
+      m_ExpandedIDs: a864fffff66fffff16fbffffbe5a0000c65a0000685c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -536,9 +536,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 408.2837, y: -12.08001, z: 53.174267}
+    m_Target: {x: 403.84082, y: -11.351609, z: 63.42823}
     speed: 2
-    m_Value: {x: 408.2837, y: -12.08001, z: 53.174267}
+    m_Value: {x: 403.84082, y: -11.351609, z: 63.42823}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -585,9 +585,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.2199513, y: 0.067829065, z: -0.015334705, w: -0.9730421}
+    m_Target: {x: -0.2205864, y: 0.33611768, z: -0.08129936, w: -0.9120228}
     speed: 2
-    m_Value: {x: -0.21994852, y: 0.06782821, z: -0.015334511, w: -0.9730298}
+    m_Value: {x: -0.22058325, y: 0.3361129, z: -0.081298195, w: -0.9120098}
   m_Size:
     m_Target: 15.132469
     speed: 2
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 132
+  controlID: 10000
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -815,21 +815,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/3D/Astronaut/Animations
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/3D/Astronaut/Animations
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Kaique2\Desktop\Projetos de Jogos\EBAC\Adventure3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 167}
-    m_SelectedIDs: 52610000
-    m_LastClickedID: 24914
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: 4a1d0100
+    m_LastClickedID: 73034
     m_ExpandedIDs: 00000000ec6000001661000020610000546100005661000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ec600000
+    m_ExpandedIDs: 00000000ec6000001661000020610000546100005661000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -883,8 +883,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: cc5b0000
-    m_LastClickedInstanceID: 23500
+    m_SelectedInstanceIDs: f66fffff
+    m_LastClickedInstanceID: -36874
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -999,7 +999,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 23500
+  m_LastSelectedObjectID: -36874
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
