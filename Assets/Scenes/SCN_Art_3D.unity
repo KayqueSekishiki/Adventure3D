@@ -2470,6 +2470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  rotSpeed: 200
   jumpForce: 10
 --- !u!4 &524351100
 Transform:

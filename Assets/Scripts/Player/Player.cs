@@ -8,8 +8,13 @@ using NaughtyAttributes;
 public class Player : Singleton<Player>
 {
     public float speed;
-    public float jumpForce;
-    private Rigidbody _rigidbody;
+    public float rotSpeed;
+    public float gravity = -9.8f;
+
+    private float _vSpeed = 0f;
+
+
+
     private CharacterController _characterController;
 
 
@@ -20,32 +25,17 @@ public class Player : Singleton<Player>
 
     public void Init()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         _characterController = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
+        transform.Rotate(0, Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime, 0);
         var speedVector = transform.forward * Input.GetAxis("Vertical") * speed;
+
+        _vSpeed += gravity * Time.deltaTime;
+        speedVector.y = _vSpeed;
 
         _characterController.Move(speedVector * Time.deltaTime);
     }
-
-    public void Move()
-    {
-
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, speed);
-    }
-
-    public void Stop()
-    {
-        _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y);
-    }
-    public void Jump()
-    {
-        _rigidbody.velocity = jumpForce * Vector2.up;
-    }
-
-
-
 }
