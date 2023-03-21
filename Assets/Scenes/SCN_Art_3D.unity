@@ -1833,8 +1833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 3.38, z: 10}
+  m_BindingMode: 4
+  m_FollowOffset: {x: 0, y: 5, z: -13}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2469,9 +2469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc054e9dbbaf96e4dad9e25ff38d4c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rotSpeed: 200
-  jumpForce: 10
+  speed: 10
+  rotSpeed: 250
+  gravity: -29.4
+  jumpForce: 15
 --- !u!4 &524351100
 Transform:
   m_ObjectHideFlags: 0
@@ -2520,7 +2521,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &537868306
 PrefabInstance:
@@ -5708,7 +5709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1179709626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5754,8 +5755,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179709625}
-  m_LocalRotation: {x: -0.0018090821, y: 0.9980687, z: -0.0353869, w: -0.0510242}
-  m_LocalPosition: {x: 411.08002, y: -4.87, z: 58.61}
+  m_LocalRotation: {x: 0.088521175, y: 0.028608896, z: -0.0025435314, w: 0.9956601}
+  m_LocalPosition: {x: 411.08, y: -2.62, z: 35.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7387,8 +7388,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: -0.0018090821, y: 0.9980687, z: -0.0353869, w: -0.0510242}
-  m_LocalPosition: {x: 405.49, y: -4.25, z: 63.77}
+  m_LocalRotation: {x: 0.088521175, y: 0.028608896, z: -0.0025435314, w: 0.9956601}
+  m_LocalPosition: {x: 411.08, y: -2.62, z: 35.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
