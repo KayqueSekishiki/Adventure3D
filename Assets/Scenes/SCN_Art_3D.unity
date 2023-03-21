@@ -2473,6 +2473,8 @@ MonoBehaviour:
   rotSpeed: 250
   gravity: -29.4
   jumpForce: 15
+  keyRun: 120
+  speedRun: 1.5
 --- !u!4 &524351100
 Transform:
   m_ObjectHideFlags: 0

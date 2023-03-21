@@ -12,6 +12,11 @@ public class Player : Singleton<Player>
     public float gravity = -9.8f;
     public float jumpForce = 15f;
 
+    [Header("Run Setup")]
+    public KeyCode keyRun = KeyCode.X;
+    public float speedRun = 1.5f;
+
+
     private float _vSpeed = 0f;
 
 
@@ -45,22 +50,28 @@ public class Player : Singleton<Player>
                 _vSpeed = jumpForce;
             }
         }
-       
+
+        var isWalking = inputAxisVertical != 0;
+        if (isWalking)
+        {
+            if (Input.GetKey(keyRun))
+            {
+                speedVector *= speedRun;
+                _animator.speed = speedRun;
+            }
+            else
+            {
+                _animator.speed = 1;
+
+            }
+        }
 
 
         _vSpeed += gravity * Time.deltaTime;
         speedVector.y = _vSpeed;
 
         _characterController.Move(speedVector * Time.deltaTime);
-
-        _animator.SetBool("Run", inputAxisVertical != 0);
-
+        _animator.SetBool("Run", isWalking);
     }
-
-
-
-
-  
-
 }
 
