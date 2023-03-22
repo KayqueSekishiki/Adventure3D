@@ -15,18 +15,19 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         base.Init();
 
-        CreateGun();
+        CreateGun(0);
 
         inputs.Gameplay.Shoot.performed += ctx => StartShoot();
         inputs.Gameplay.Shoot.performed += ctx => CancelShoot();
-        inputs.Gameplay.ChangeToGun01.performed += ctx => ChangeGun(0);
-        inputs.Gameplay.ChangeToGun02.performed += ctx => ChangeGun(1);
+        inputs.Gameplay.ChangeToGun01.performed += ctx => CreateGun(0);
+        inputs.Gameplay.ChangeToGun02.performed += ctx => CreateGun(1);
 
     }
 
-    private void CreateGun()
+    private void CreateGun(int gunIndex)
     {
-        _currentGun = Instantiate(gunbases[0], gunPosition);
+        if (_currentGun != null) Destroy(_currentGun.gameObject);
+        _currentGun = Instantiate(gunbases[gunIndex], gunPosition);
         _currentGun.transform.localPosition = _currentGun.transform.eulerAngles = Vector3.zero;
     }
 
@@ -41,12 +42,6 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         Debug.Log("Cancel Shoot");
         _currentGun.StopShoot();
-    }
-
-    private void ChangeGun(int gunIndex)
-    {
-        if (_currentGun != null) Destroy(_currentGun.gameObject);
-        _currentGun = Instantiate(gunbases[gunIndex], gunPosition);
     }
 }
 
