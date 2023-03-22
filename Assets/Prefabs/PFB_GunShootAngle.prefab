@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703907304078450833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -130,9 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 2339263240190511265, guid: 823d6d94fd829f541ae459b2fdf9a4cc, type: 3}
   positionShoot: {fileID: 6703907303670501396}
-  timeBetweenShoot: 0.3
+  timeBetweenShoot: 0
   speed: 50
-  maxShoot: 5
+  uiGunUpdaters: []
+  maxShoot: 1
   timeToRecharge: 1
   amountPerShoot: 4
   angle: 15

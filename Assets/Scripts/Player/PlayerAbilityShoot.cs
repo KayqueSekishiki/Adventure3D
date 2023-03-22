@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerAbilityShoot : PlayerAbilityBase
 {
-    public GunBase gunbase;
+    public List<GunBase> gunbases;
     public Transform gunPosition;
 
     private GunBase _currentGun;
@@ -19,11 +19,14 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
         inputs.Gameplay.Shoot.performed += ctx => StartShoot();
         inputs.Gameplay.Shoot.performed += ctx => CancelShoot();
+        inputs.Gameplay.ChangeToGun01.performed += ctx => ChangeGun(0);
+        inputs.Gameplay.ChangeToGun02.performed += ctx => ChangeGun(1);
+
     }
 
     private void CreateGun()
     {
-        _currentGun = Instantiate(gunbase, gunPosition);
+        _currentGun = Instantiate(gunbases[0], gunPosition);
         _currentGun.transform.localPosition = _currentGun.transform.eulerAngles = Vector3.zero;
     }
 
@@ -38,6 +41,12 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         Debug.Log("Cancel Shoot");
         _currentGun.StopShoot();
+    }
+
+    private void ChangeGun(int gunIndex)
+    {
+        if (_currentGun != null) Destroy(_currentGun.gameObject);
+        _currentGun = Instantiate(gunbases[gunIndex], gunPosition);
     }
 }
 
