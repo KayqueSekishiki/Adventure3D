@@ -76,6 +76,16 @@ namespace Enemy
             PlayAnimationByTrigger(AnimationType.DEATH);
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            Player p = collision.transform.GetComponent<Player>();
+
+            if(p != null)
+            {
+                p.Damage(1);
+            }
+        }
+
 
 
 

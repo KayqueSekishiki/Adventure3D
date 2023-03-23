@@ -30,7 +30,6 @@ public class ProjectileBase : MonoBehaviour
             dir = -dir.normalized;
             dir.y = 0;
             damageable.Damage(bulletDamage, dir);
-
         }
         Destroy(gameObject);
     }

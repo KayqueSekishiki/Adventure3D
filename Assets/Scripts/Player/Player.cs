@@ -5,7 +5,7 @@ using Ebac.Core.Singleton;
 using Ebac.StateMachine;
 using NaughtyAttributes;
 
-public class Player : Singleton<Player>
+public class Player : Singleton<Player>, IDamageable
 {
     public float speed;
     public float rotSpeed;
@@ -19,6 +19,8 @@ public class Player : Singleton<Player>
 
     private float _vSpeed = 0f;
 
+    [Header("Flash")]
+    public List<FlashColor> flashColors;
 
     private Animator _animator;
     private CharacterController _characterController;
@@ -73,5 +75,18 @@ public class Player : Singleton<Player>
         _characterController.Move(speedVector * Time.deltaTime);
         _animator.SetBool("Run", isWalking);
     }
+
+
+    #region LIFE
+    public void Damage(float damage)
+    {
+        flashColors.ForEach(i => i.Flash());
+    }
+
+    public void Damage(float damage, Vector3 dir)
+    {
+    
+    }
+    #endregion
 }
 
