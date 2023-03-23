@@ -61,9 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45749039a9057aa45b5fe2a6fdface27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1925041861101543871}
+  enemyCollider: {fileID: 1925041861101543871}
   flashColor: {fileID: 7586264077976741120}
-  particleSystem: {fileID: 1925041862348458798}
+  EnemyParticleSystem: {fileID: 1925041862348458798}
   startLife: 12
   _currentLife: 0
   _animationBase: {fileID: 1925041861101543869}
