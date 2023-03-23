@@ -2943,6 +2943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45749039a9057aa45b5fe2a6fdface27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 561592065}
   startLife: 10
   _currentLife: 0
   _animationBase: {fileID: 561592066}
