@@ -13,7 +13,7 @@ public class GunShootAngle : GunShootLimit
 
         for (int i = 0; i < amountPerShoot; i++)
         {
-            if(i%2 == 0)
+            if (i % 2 == 0)
             {
                 mult++;
             }
@@ -23,6 +23,7 @@ public class GunShootAngle : GunShootLimit
             projectile.transform.localEulerAngles = Vector3.zero + Vector3.up * (i % 2 == 0 ? angle : -angle) * mult;
             projectile.speed = speed;
             projectile.transform.parent = null;
+
         }
     }
 

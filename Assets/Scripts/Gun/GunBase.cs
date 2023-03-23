@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class GunBase : MonoBehaviour
 {
-
     public ProjectileBase prefabProjectile;
-
     public Transform positionShoot;
     public float timeBetweenShoot = .3f;
     public float speed = 30f;
 
     private Coroutine _currentCoroutine;
 
-   protected virtual IEnumerator ShootCoroutine()
+    protected virtual IEnumerator ShootCoroutine()
     {
         while (true)
         {
@@ -35,6 +33,7 @@ public class GunBase : MonoBehaviour
     {
         StopShoot();
         _currentCoroutine = StartCoroutine(ShootCoroutine());
+
     }
     public void StopShoot()
     {

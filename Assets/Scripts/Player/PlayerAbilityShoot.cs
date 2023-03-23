@@ -18,10 +18,9 @@ public class PlayerAbilityShoot : PlayerAbilityBase
         CreateGun(0);
 
         inputs.Gameplay.Shoot.performed += ctx => StartShoot();
-        inputs.Gameplay.Shoot.performed += ctx => CancelShoot();
+        inputs.Gameplay.Shoot.canceled += ctx => CancelShoot();
         inputs.Gameplay.ChangeToGun01.performed += ctx => CreateGun(0);
         inputs.Gameplay.ChangeToGun02.performed += ctx => CreateGun(1);
-
     }
 
     private void CreateGun(int gunIndex)

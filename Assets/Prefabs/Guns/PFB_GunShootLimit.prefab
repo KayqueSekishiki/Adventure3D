@@ -133,5 +133,5 @@ MonoBehaviour:
   timeBetweenShoot: 0.2
   speed: 30
   uiGunUpdaters: []
-  maxShoot: 1
-  timeToRecharge: 0.2
+  maxShoot: 10
+  timeToRecharge: 1
