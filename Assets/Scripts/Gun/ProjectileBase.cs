@@ -24,7 +24,14 @@ public class ProjectileBase : MonoBehaviour
     {
         var damageable = collision.transform.GetComponent<IDamageable>();
 
-        if (damageable != null) damageable.Damage(bulletDamage);
+        if (damageable != null)
+        {
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            dir.y = 0;
+            damageable.Damage(bulletDamage, dir);
+
+        }
         Destroy(gameObject);
     }
 }

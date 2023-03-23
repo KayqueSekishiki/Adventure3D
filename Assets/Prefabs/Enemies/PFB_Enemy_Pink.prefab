@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1925041861101543856}
   - component: {fileID: 1925041861101543871}
-  - component: {fileID: 1925041861101543870}
   - component: {fileID: 1925041861101543869}
+  - component: {fileID: 9203993858571476198}
   m_Layer: 0
   m_Name: PFB_Enemy_Pink
   m_TagString: Untagged
@@ -49,27 +49,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 4, z: 2.5}
   m_Center: {x: 0.25, y: 2, z: 0}
---- !u!114 &1925041861101543870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925041861101543868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45749039a9057aa45b5fe2a6fdface27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyCollider: {fileID: 1925041861101543871}
-  flashColor: {fileID: 7586264077976741120}
-  EnemyParticleSystem: {fileID: 1925041862348458798}
-  startLife: 12
-  _currentLife: 0
-  _animationBase: {fileID: 1925041861101543869}
-  startAnimationDuration: 0.2
-  startAnimationEase: 27
-  startWithBornAnimation: 1
 --- !u!114 &1925041861101543869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +71,30 @@ MonoBehaviour:
     trigger: Death
   - animationType: 3
     trigger: Attack
+--- !u!114 &9203993858571476198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925041861101543868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe40e103c1c0df408887224128ebfb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCollider: {fileID: 1925041861101543871}
+  flashColor: {fileID: 7586264077976741120}
+  EnemyParticleSystem: {fileID: 1925041862348458798}
+  startLife: 12
+  _currentLife: 0
+  _animationBase: {fileID: 1925041861101543869}
+  startAnimationDuration: 0.2
+  startAnimationEase: 27
+  startWithBornAnimation: 1
+  waypoints: []
+  minDistance: 1
+  speed: 6
 --- !u!1 &1925041861671147680
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +118,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925041861671147680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -123,7 +126,7 @@ Transform:
   - {fileID: 5591855383090641312}
   m_Father: {fileID: 1925041861101543856}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1925041862348458797
 GameObject:
   m_ObjectHideFlags: 0

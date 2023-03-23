@@ -42,8 +42,13 @@ namespace Enemy
         public void Damage(float damage) // IDamageable
         {
             Debug.Log("Damage");
-
             OnDamage(damage);
+        }
+
+        public void Damage(float damage, Vector3 dir) // IDamageable
+        {
+            OnDamage(damage);
+            transform.DOMove(transform.position - dir, .1f);
         }
 
         public void OnDamage(float f)
