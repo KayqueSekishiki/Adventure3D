@@ -85,7 +85,7 @@ public class Player : Singleton<Player>, IDamageable
 
     public void Damage(float damage, Vector3 dir)
     {
-    
+        Damage(damage);
     }
     #endregion
 }

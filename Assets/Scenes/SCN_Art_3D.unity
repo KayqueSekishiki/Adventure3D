@@ -11857,6 +11857,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2706453789230494586, guid: 84c002946171c634882409a9763a3f6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706453789230494586, guid: 84c002946171c634882409a9763a3f6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706453789230494587, guid: 84c002946171c634882409a9763a3f6c, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3481411430028714338, guid: 84c002946171c634882409a9763a3f6c, type: 3}
       propertyPath: m_Name
       value: PFB_Enemy_Orange
@@ -11904,6 +11916,10 @@ PrefabInstance:
     - target: {fileID: 3481411430028714342, guid: 84c002946171c634882409a9763a3f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865148973686045933, guid: 84c002946171c634882409a9763a3f6c, type: 3}
+      propertyPath: lookAtPlayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c002946171c634882409a9763a3f6c, type: 3}
