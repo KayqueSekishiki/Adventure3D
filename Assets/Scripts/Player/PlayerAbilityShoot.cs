@@ -27,7 +27,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         if (_currentGun != null) Destroy(_currentGun.gameObject);
         _currentGun = Instantiate(gunbases[gunIndex], gunPosition);
-        //_currentGun.transform.localPosition = _currentGun.transform.eulerAngles = Vector3.zero;
+        // _currentGun.transform.localPosition = _currentGun.transform.eulerAngles = Vector3.zero;
     }
 
 
