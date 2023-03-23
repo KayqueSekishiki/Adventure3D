@@ -9,6 +9,7 @@ namespace Enemy
     public class EnemyBase : MonoBehaviour, IDamageable
     {
         public Collider collider;
+        public FlashColor flashColor;
         public float startLife = 10f;
 
         [SerializeField] private float _currentLife;
@@ -46,6 +47,7 @@ namespace Enemy
 
         public void OnDamage(float f)
         {
+            if (flashColor != null) flashColor.Flash();
             _currentLife -= f;
 
             if (_currentLife <= 0)
