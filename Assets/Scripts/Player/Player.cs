@@ -42,7 +42,7 @@ public class Player : Singleton<Player>, IDamageable
         transform.Rotate(0, Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime, 0);
 
         var inputAxisVertical = Input.GetAxis("Vertical");
-        var speedVector = transform.forward * inputAxisVertical * speed;
+        var speedVector = inputAxisVertical * speed * transform.forward;
 
         if (_characterController.isGrounded)
         {

@@ -11869,6 +11869,10 @@ PrefabInstance:
       propertyPath: speed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2706453789230494587, guid: 84c002946171c634882409a9763a3f6c, type: 3}
+      propertyPath: timeToRecharge
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3481411430028714338, guid: 84c002946171c634882409a9763a3f6c, type: 3}
       propertyPath: m_Name
       value: PFB_Enemy_Orange

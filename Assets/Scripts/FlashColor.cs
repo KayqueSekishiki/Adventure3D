@@ -13,7 +13,6 @@ public class FlashColor : MonoBehaviour
     public float duration = .1f;
     public int loop = 1;
 
-    private Color defaultColor;
     private Tween _currentTween;
 
 
@@ -22,11 +21,6 @@ public class FlashColor : MonoBehaviour
         if (meshRenderer == null) meshRenderer = GetComponent<MeshRenderer>();
         if (skinnedMeshRenderer == null) skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
     }
-
-    //private void Start()
-    //{
-    //    defaultColor = meshRenderer.material.GetColor("_EmissionColor");
-    //}
 
     [NaughtyAttributes.Button]
     public void Flash()

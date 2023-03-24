@@ -28,7 +28,7 @@ public class UIGunUpdater : MonoBehaviour
     public void UpdateValue(float max, float current)
     {
         if (_currentTween != null) _currentTween.Kill();
-        uiImage.DOFillAmount(1 - (current / max), duration).SetEase(ease);
+        _currentTween = uiImage.DOFillAmount(1 - (current / max), duration).SetEase(ease);
     }
 
 }
