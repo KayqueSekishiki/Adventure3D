@@ -29,13 +29,13 @@ namespace Ebac.StateMachine
             DictionaryState.Add(typeEnum, state);
         }
 
-        public void SwitchStates(T state)
+        public void SwitchStates(T state, params object[] objs)
         {
             if (_currentState != null) _currentState.OnStateExit();
 
             _currentState = DictionaryState[state];
 
-            if (_currentState != null) _currentState.OnStateEnter();
+            if (_currentState != null) _currentState.OnStateEnter(objs);
         }
 
 
@@ -53,23 +53,23 @@ namespace Ebac.StateMachine
 
 
 
-//#if UNITY_EDITOR
-//        #region DEBUG
-//        [Button]
-//        private void ChangeStateToStatNone()
-//        {
-//            // SwitchStates(States.NONE);
+        //#if UNITY_EDITOR
+        //        #region DEBUG
+        //        [Button]
+        //        private void ChangeStateToStatNone()
+        //        {
+        //            // SwitchStates(States.NONE);
 
-//        }
+        //        }
 
-//        [Button]
-//        private void ChangeStateToStatNone2()
-//        {
-//            //  SwitchStates(States.NONE);
+        //        [Button]
+        //        private void ChangeStateToStatNone2()
+        //        {
+        //            //  SwitchStates(States.NONE);
 
-//        }
-//        #endregion
-//#endif
+        //        }
+        //        #endregion
+        //#endif
     }
 
 
