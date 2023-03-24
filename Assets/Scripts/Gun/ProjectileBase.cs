@@ -27,7 +27,7 @@ public class ProjectileBase : MonoBehaviour
 
         foreach (var t in tagsToHit)
         {
-            if (collision.transform.tag == t)
+            if (collision.transform.CompareTag(t))
             {
                 var damageable = collision.transform.GetComponent<IDamageable>();
 
@@ -37,11 +37,11 @@ public class ProjectileBase : MonoBehaviour
                     dir = -dir.normalized;
                     dir.y = 0;
                     damageable.Damage(bulletDamage, dir);
+                    Destroy(gameObject);
                 }
 
                 break;
             }
         }
-        Destroy(gameObject);
     }
 }
