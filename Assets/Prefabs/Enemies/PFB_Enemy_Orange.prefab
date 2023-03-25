@@ -106,6 +106,10 @@ MonoBehaviour:
   EnemyParticleSystem: {fileID: 3481411431023308668}
   startLife: 25
   lookAtPlayer: 0
+  followPlayer: 0
+  lookRadius: 20
+  speed: 1
+  powerDamage: 2
   _currentLife: 0
   _animationBase: {fileID: 3481411430028714339}
   startAnimationDuration: 0.2
@@ -5198,6 +5202,18 @@ PrefabInstance:
     - target: {fileID: 6703907304078450834, guid: b41de00f98c2f99409cb582777117aea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703907304078450835, guid: b41de00f98c2f99409cb582777117aea, type: 3}
+      propertyPath: iAmEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703907304078450835, guid: b41de00f98c2f99409cb582777117aea, type: 3}
+      propertyPath: maxShoot
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703907304078450835, guid: b41de00f98c2f99409cb582777117aea, type: 3}
+      propertyPath: timeBetweenShoot
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b41de00f98c2f99409cb582777117aea, type: 3}

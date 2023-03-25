@@ -6,20 +6,33 @@ namespace Enemy
 {
     public class EnemyShoot : EnemyBase
     {
+        private bool attackMode = false;
         public GunBase gunBase;
 
         protected override void Init()
         {
             base.Init();
 
-            //gunBase.StartShoot();
+            // gunBase.StartShoot();
         }
-
 
         public override void Update()
         {
-            base.Update();
-            gunBase.StartShoot();
+            if (Vector3.Distance(transform.position, player.transform.position) <= lookRadius)
+            {
+                LookToPlayer();
+                if (!attackMode)
+                {
+                    gunBase.StartShoot();
+                    attackMode = true;
+                }
+
+            }
+            else
+            {
+                gunBase.StopShoot();
+                attackMode = false;
+            }
         }
     }
 }

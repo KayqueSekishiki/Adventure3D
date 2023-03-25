@@ -10,6 +10,7 @@ public class GunShootAngle : GunShootLimit
     public override void Shoot()
     {
         int mult = 0;
+     
 
         for (int i = 0; i < amountPerShoot; i++)
         {
@@ -24,6 +25,12 @@ public class GunShootAngle : GunShootLimit
             projectile.speed = speed;
             projectile.transform.parent = null;
         }
+
+        var projectileMid = Instantiate(prefabProjectile, positionShoot);
+        projectileMid.transform.localPosition = Vector3.zero;
+        projectileMid.speed = speed;
+        projectileMid.transform.parent = null;
+
     }
 
 

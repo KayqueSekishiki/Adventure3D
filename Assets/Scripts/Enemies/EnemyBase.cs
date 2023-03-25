@@ -28,7 +28,7 @@ namespace Enemy
         public Ease startAnimationEase = Ease.OutBack;
         public bool startWithBornAnimation = true;
 
-        private Player _player;
+        [HideInInspector] public Player player;
 
         private void Awake()
         {
@@ -37,7 +37,7 @@ namespace Enemy
 
         private void Start()
         {
-            _player = GameObject.FindObjectOfType<Player>();
+            player = GameObject.FindObjectOfType<Player>();
         }
 
         public virtual void Update()
@@ -49,10 +49,10 @@ namespace Enemy
 
             if (followPlayer)
             {
-                if (Vector3.Distance(transform.position, _player.transform.position) <= lookRadius)
+                if (Vector3.Distance(transform.position, player.transform.position) <= lookRadius)
                 {
                     LookToPlayer();
-                    transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, Time.deltaTime * speed);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * speed);
                 }
             }
         }
@@ -117,7 +117,7 @@ namespace Enemy
 
         protected virtual void LookToPlayer()
         {
-            transform.LookAt(_player.transform.position);
+            transform.LookAt(player.transform.position);
         }
 
         private void OnDrawGizmos()
