@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using NaughtyAttributes;
 
 public class Player : Singleton<Player>//, IDamageable
 {
+    [HideInInspector] public List<Collider> colliders;
     public float speed;
     public float rotSpeed;
     public float gravity = -9.8f;
@@ -18,6 +20,7 @@ public class Player : Singleton<Player>//, IDamageable
 
 
     private float _vSpeed = 0f;
+    private bool _alive = true;
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
@@ -38,6 +41,7 @@ public class Player : Singleton<Player>//, IDamageable
         OnValidate();
 
         healthBase.OnDamage += Damage;
+        healthBase.OnDamage += OnKill;
     }
 
     private void Start()
@@ -49,6 +53,14 @@ public class Player : Singleton<Player>//, IDamageable
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
+        var colls = GetComponents<Collider>();
+        if (colls != null)
+        {
+            foreach (var c in colls)
+            {
+                colliders.Add(c);
+            }
+        }
     }
 
     private void Update()
@@ -78,7 +90,6 @@ public class Player : Singleton<Player>//, IDamageable
             else
             {
                 _animator.speed = 1;
-
             }
         }
 
@@ -99,7 +110,17 @@ public class Player : Singleton<Player>//, IDamageable
 
     public void Damage(float damage, Vector3 dir)
     {
-       // Damage(damage);
+        // Damage(damage);
+    }
+
+    private void OnKill(HealthBase h)
+    {
+        if (_alive)
+        {
+            _alive = false;
+            _animator.SetTrigger("Death");
+            colliders.ForEach(i => i.enabled = false);
+        }
     }
     #endregion
 }
