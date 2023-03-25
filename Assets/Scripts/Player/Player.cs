@@ -25,10 +25,12 @@ public class Player : Singleton<Player>//, IDamageable
     [Header("Flash")]
     public List<FlashColor> flashColors;
 
-    public HealthBase healthBase;
 
     private Animator _animator;
     private CharacterController _characterController;
+
+    [Header("Life")]
+    public HealthBase healthBase;
 
 
     private void OnValidate()
@@ -41,7 +43,7 @@ public class Player : Singleton<Player>//, IDamageable
         OnValidate();
 
         healthBase.OnDamage += Damage;
-        healthBase.OnDamage += OnKill;
+        healthBase.OnKill += OnKill;
     }
 
     private void Start()
