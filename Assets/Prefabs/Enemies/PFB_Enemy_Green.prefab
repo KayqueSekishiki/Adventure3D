@@ -66,11 +66,17 @@ MonoBehaviour:
   flashColor: {fileID: 1232672952759002245}
   EnemyParticleSystem: {fileID: 7251556928184419268}
   startLife: 5
+  lookAtPlayer: 0
+  followPlayer: 0
+  lookRadius: 20
+  speed: 4
+  powerDamage: 2
   _currentLife: 0
   _animationBase: {fileID: 7251556928140934481}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startWithBornAnimation: 1
+  player: {fileID: 0}
 --- !u!114 &7251556928140934481
 MonoBehaviour:
   m_ObjectHideFlags: 0

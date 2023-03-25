@@ -53,7 +53,10 @@ namespace Boss
         {
             Init();
             OnValidate();
-            healthBase.OnKill += OnBossKill;
+            if (healthBase != null)
+            {
+                healthBase.OnKill += OnBossKill;
+            }
             target = FindObjectOfType<Player>().transform;
         }
 
@@ -110,10 +113,6 @@ namespace Boss
             Gizmos.DrawWireSphere(transform.position, lookRadius);
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
-
-
-
-
 
         #region WALK
         public void GoToRandomPoint(Action onArrive = null)
