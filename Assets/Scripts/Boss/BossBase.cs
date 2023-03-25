@@ -12,7 +12,8 @@ namespace Boss
         INIT,
         IDLE,
         WALK,
-        ATTACK
+        ATTACK,
+        DEATH
     }
 
     public class BossBase : MonoBehaviour
@@ -31,9 +32,13 @@ namespace Boss
         public int attackAmount = 5;
         public float timeBetweenAttacks = .5f;
 
+        [Header("References")]
+        public HealthBase healthBase;
+
         private void Awake()
         {
             Init();
+            healthBase.OnKill += OnBossKill;
         }
 
         private void Init()
@@ -44,6 +49,12 @@ namespace Boss
             stateMachine.RegisterStates(BossAction.INIT, new BossStateInit());
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
             stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
+            stateMachine.RegisterStates(BossAction.DEATH, new BossStateDeath());
+        }
+
+        private void OnBossKill(HealthBase h)
+        {
+            SwitchState(BossAction.DEATH);
         }
 
         #region WALK
@@ -64,7 +75,6 @@ namespace Boss
         }
 
         #endregion
-
 
         #region ATTACK  
         public void StartAttack(Action endCallback = null)
