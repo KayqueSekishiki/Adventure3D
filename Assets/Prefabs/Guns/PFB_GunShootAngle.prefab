@@ -134,7 +134,7 @@ MonoBehaviour:
   speed: 30
   uiGunUpdaters: []
   updateUIs: 1
-  maxShoot: 4
+  maxShoot: 1
   timeToRecharge: 1
   amountPerShoot: 4
   angle: 15

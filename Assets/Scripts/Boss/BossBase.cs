@@ -35,10 +35,51 @@ namespace Boss
         [Header("References")]
         public HealthBase healthBase;
 
+        [Header("SETUP")]
+        public float lookRadius;
+        public float attackRadius;
+        public Transform target;
+
+        public bool bossSpawned = false;
+        private bool _attackMode = false;
+
+
         private void Awake()
         {
             Init();
             healthBase.OnKill += OnBossKill;
+            target = FindObjectOfType<Player>().transform;
+        }
+
+        private void Update()
+        {
+            float distance = Vector3.Distance(target.position, transform.position);
+
+            if (!bossSpawned)
+            {
+                if (distance <= lookRadius)
+                {
+                    SwitchState(BossAction.INIT);
+                    bossSpawned = true;
+                }
+            }
+
+            if (distance <= lookRadius)
+            {
+                transform.LookAt(target);
+
+                if (distance <= attackRadius && !_attackMode)
+                {
+                    SwitchState(BossAction.WALK);
+                    _attackMode = true;
+                }
+                else if (distance > attackRadius && _attackMode)
+                {
+                    SwitchState(BossAction.INIT);
+                    _attackMode = false;
+                }
+            }
+
         }
 
         private void Init()
@@ -56,6 +97,17 @@ namespace Boss
         {
             SwitchState(BossAction.DEATH);
         }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, lookRadius);
+            Gizmos.DrawWireSphere(transform.position, attackRadius);
+        }
+
+
+
+
 
         #region WALK
         public void GoToRandomPoint(Action onArrive = null)
@@ -100,7 +152,7 @@ namespace Boss
         #region ANIMATION
         public void StartInitAnimation()
         {
-            transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
+            transform.DOScale(1, startAnimationDuration).SetEase(startAnimationEase);
         }
         #endregion
 

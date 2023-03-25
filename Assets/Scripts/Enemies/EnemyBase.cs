@@ -13,6 +13,10 @@ namespace Enemy
         public ParticleSystem EnemyParticleSystem;
         public float startLife = 10f;
         public bool lookAtPlayer = false;
+        public bool followPlayer = false;
+        public float lookRadius = 20f;
+        public float speed = 1f;
+        public int powerDamage = 2;
 
         [SerializeField] private float _currentLife;
 
@@ -34,6 +38,23 @@ namespace Enemy
         private void Start()
         {
             _player = GameObject.FindObjectOfType<Player>();
+        }
+
+        public virtual void Update()
+        {
+            if (lookAtPlayer)
+            {
+                LookToPlayer();
+            }
+
+            if (followPlayer)
+            {
+                if (Vector3.Distance(transform.position, _player.transform.position) <= lookRadius)
+                {
+                    LookToPlayer();
+                    transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, Time.deltaTime * speed);
+                }
+            }
         }
 
         protected virtual void Init()
@@ -90,12 +111,20 @@ namespace Enemy
 
             if (p != null)
             {
-                p.Damage(1);
+                p.Damage(powerDamage);
             }
         }
 
+        protected virtual void LookToPlayer()
+        {
+            transform.LookAt(_player.transform.position);
+        }
 
-
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, lookRadius);
+        }
 
         #region ANIMATIONS
         private void BornAnimation()
@@ -110,15 +139,5 @@ namespace Enemy
 
         #endregion
 
-        public virtual void Update()
-        {
-            if (lookAtPlayer)
-            {
-                transform.LookAt(_player.transform.position);
-            }
-        }
-
-
     }
-
 }

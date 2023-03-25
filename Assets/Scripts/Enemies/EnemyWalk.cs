@@ -10,7 +10,6 @@ namespace Enemy
         [Header("Waypoints")]
         public GameObject[] waypoints;
         public float minDistance = 1f;
-        public float speed = 1f;
         private int _index = 0;
 
         public override void Update()

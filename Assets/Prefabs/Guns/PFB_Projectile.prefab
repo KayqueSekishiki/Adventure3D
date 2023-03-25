@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fb90bff7c26de4ca515911263830f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 2
+  timeToDestroy: 0.5
   bulletDamage: 1
   speed: 20
   tagsToHit:

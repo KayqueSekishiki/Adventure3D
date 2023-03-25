@@ -12,6 +12,13 @@ namespace Enemy
         {
             base.Init();
 
+            //gunBase.StartShoot();
+        }
+
+
+        public override void Update()
+        {
+            base.Update();
             gunBase.StartShoot();
         }
     }
