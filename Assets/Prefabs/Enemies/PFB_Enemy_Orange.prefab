@@ -109,12 +109,13 @@ MonoBehaviour:
   followPlayer: 0
   lookRadius: 20
   speed: 1
-  powerDamage: 2
+  powerDamage: 5
   _currentLife: 0
   _animationBase: {fileID: 3481411430028714339}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startWithBornAnimation: 1
+  player: {fileID: 0}
   gunBase: {fileID: 2706453789230494587}
 --- !u!1 &3481411431023308671
 GameObject:

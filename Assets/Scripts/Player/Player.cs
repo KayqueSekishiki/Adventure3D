@@ -5,7 +5,7 @@ using Ebac.Core.Singleton;
 using Ebac.StateMachine;
 using NaughtyAttributes;
 
-public class Player : Singleton<Player>, IDamageable
+public class Player : Singleton<Player>//, IDamageable
 {
     public float speed;
     public float rotSpeed;
@@ -22,9 +22,23 @@ public class Player : Singleton<Player>, IDamageable
     [Header("Flash")]
     public List<FlashColor> flashColors;
 
+    public HealthBase healthBase;
+
     private Animator _animator;
     private CharacterController _characterController;
 
+
+    private void OnValidate()
+    {
+        if (healthBase == null) healthBase = GetComponent<HealthBase>();
+    }
+
+    private void Awake()
+    {
+        OnValidate();
+
+        healthBase.OnDamage += Damage;
+    }
 
     private void Start()
     {
@@ -78,14 +92,14 @@ public class Player : Singleton<Player>, IDamageable
 
 
     #region LIFE
-    public void Damage(float damage)
+    public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
     }
 
     public void Damage(float damage, Vector3 dir)
     {
-        Damage(damage);
+       // Damage(damage);
     }
     #endregion
 }

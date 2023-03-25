@@ -111,7 +111,7 @@ namespace Enemy
 
             if (p != null)
             {
-                p.Damage(powerDamage);
+                p.healthBase.Damage(powerDamage);
             }
         }
 

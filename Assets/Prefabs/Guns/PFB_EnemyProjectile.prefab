@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 1
-  bulletDamage: 1
+  bulletDamage: 5
   speed: 20
   tagsToHit:
   - Player
