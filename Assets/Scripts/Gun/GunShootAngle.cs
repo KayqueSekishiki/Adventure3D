@@ -30,9 +30,5 @@ public class GunShootAngle : GunShootLimit
         projectileMid.transform.localPosition = Vector3.zero;
         projectileMid.speed = speed;
         projectileMid.transform.parent = null;
-
     }
-
-
-
 }

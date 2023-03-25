@@ -8,7 +8,6 @@ public class GunBase : MonoBehaviour
     public Transform positionShoot;
     public float timeBetweenShoot = .3f;
     public float speed = 30f;
-    public bool iAmEnemy = false;
 
     private Coroutine _currentCoroutine;
 
@@ -39,5 +38,4 @@ public class GunBase : MonoBehaviour
     {
         if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
     }
-
 }
