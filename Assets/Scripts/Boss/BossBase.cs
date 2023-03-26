@@ -40,8 +40,11 @@ namespace Boss
         public float attackRadius;
         public Transform target;
 
+        public GameObject bossCamera;
+
         public bool bossSpawned = false;
         private bool _attackMode = false;
+
 
 
         private void OnValidate()
@@ -68,7 +71,7 @@ namespace Boss
             {
                 if (distance <= lookRadius)
                 {
-                    SwitchState(BossAction.INIT);
+                    SwitchState(BossAction.INIT);                   
                     bossSpawned = true;
                 }
             }
@@ -76,6 +79,7 @@ namespace Boss
             if (distance <= lookRadius)
             {
                 transform.LookAt(target);
+                bossCamera.SetActive(true);
 
                 if (distance <= attackRadius && !_attackMode)
                 {
@@ -87,6 +91,9 @@ namespace Boss
                     SwitchState(BossAction.INIT);
                     _attackMode = false;
                 }
+            } else
+            {
+                bossCamera.SetActive(false);
             }
 
         }
@@ -104,6 +111,7 @@ namespace Boss
 
         private void OnBossKill(HealthBase h)
         {
+            bossCamera.SetActive(false);
             SwitchState(BossAction.DEATH);
         }
 
