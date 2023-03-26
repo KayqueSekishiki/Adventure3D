@@ -71,14 +71,16 @@ namespace Boss
             {
                 if (distance <= lookRadius)
                 {
-                    SwitchState(BossAction.INIT);                   
+                    SwitchState(BossAction.INIT);
                     bossSpawned = true;
                 }
             }
 
             if (distance <= lookRadius)
             {
-                transform.LookAt(target);
+                Vector3 lookPosition = target.transform.position;
+                lookPosition.y = transform.position.y;
+                transform.LookAt(lookPosition);
                 bossCamera.SetActive(true);
 
                 if (distance <= attackRadius && !_attackMode)
@@ -91,7 +93,8 @@ namespace Boss
                     SwitchState(BossAction.INIT);
                     _attackMode = false;
                 }
-            } else
+            }
+            else
             {
                 bossCamera.SetActive(false);
             }

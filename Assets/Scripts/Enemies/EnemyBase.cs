@@ -117,7 +117,9 @@ namespace Enemy
 
         protected virtual void LookToPlayer()
         {
-            transform.LookAt(player.transform.position);
+            Vector3 lookPosition = player.transform.position;
+            lookPosition.y = transform.position.y;
+            transform.LookAt(lookPosition);
         }
 
         private void OnDrawGizmos()
