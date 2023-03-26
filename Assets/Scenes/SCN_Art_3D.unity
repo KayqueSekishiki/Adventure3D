@@ -2210,7 +2210,7 @@ GameObject:
   - component: {fileID: 373000435}
   - component: {fileID: 373000434}
   - component: {fileID: 373000436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4741,7 +4741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 7f74f82cfffc01a4881ba19be5662790, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
@@ -6728,7 +6728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1179709627}
   - component: {fileID: 1179709626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6780,7 +6780,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179709625}
-  m_LocalRotation: {x: 0.15098235, y: 0.7231975, z: -0.16725059, w: 0.65285295}
+  m_LocalRotation: {x: 0.15097517, y: 0.7232255, z: -0.16725709, w: 0.65282196}
   m_LocalPosition: {x: 306.05, y: 23, z: 61.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8719,7 +8719,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.15098235, y: 0.7231975, z: -0.16725059, w: 0.65285295}
+  m_LocalRotation: {x: 0.15097517, y: 0.7232255, z: -0.16725709, w: 0.65282196}
   m_LocalPosition: {x: 306.05, y: 23, z: 61.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
