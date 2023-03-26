@@ -2097,7 +2097,6 @@ GameObject:
   - component: {fileID: 329846285}
   - component: {fileID: 329846284}
   - component: {fileID: 329846283}
-  - component: {fileID: 329846282}
   m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
@@ -2120,23 +2119,6 @@ Transform:
   m_Father: {fileID: 1529364975}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &329846282
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 329846280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 554b0ed52734c154eab51f6cedd3a7d7, type: 2}
-  m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 1
-  mNoiseOffsets: {x: -739.2385, y: -257.97714, z: -770.33716}
 --- !u!114 &329846283
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -6875,6 +6857,7 @@ GameObject:
   - component: {fileID: 1105023049}
   - component: {fileID: 1105023048}
   - component: {fileID: 1105023047}
+  - component: {fileID: 1105023050}
   m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
@@ -6958,6 +6941,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105023050
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105023045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &1119696826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8039,6 +8039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1323011745}
   - component: {fileID: 1323011744}
+  - component: {fileID: 1323011746}
   m_Layer: 6
   m_Name: CM vcam1 Player
   m_TagString: Untagged
@@ -8100,6 +8101,21 @@ Transform:
   m_Father: {fileID: 987243262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 92.255, z: 0}
+--- !u!114 &1323011746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323011743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3579253b0bbe84cb920fcda64f1713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 1323011744}
+  shakeTime: 0
+  c: {fileID: 0}
 --- !u!1001 &1327868437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9813,7 +9829,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529364973}
-  m_LocalRotation: {x: 0.000000009095001, y: 0.9522955, z: -0.30517757, w: 0.00000002838062}
+  m_LocalRotation: {x: -0.000000003767272, y: 0.9522955, z: -0.30517754, w: -0.000000011755636}
   m_LocalPosition: {x: -65.98016, y: 22.565222, z: -220.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
