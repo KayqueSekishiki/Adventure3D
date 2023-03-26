@@ -12,13 +12,15 @@ public class ShakeCamera : Singleton<ShakeCamera>
     public float amplitude = 3f;
     public float frequency = 3f;
     public float shakeTime = 0.3f;
+    private float _shakeTime;
 
     private CinemachineBasicMultiChannelPerlin _cinemachineBMCP;
 
     [NaughtyAttributes.Button]
     public void Shake()
     {
-        Shake(amplitude, frequency, shakeTime);
+        _shakeTime = shakeTime;
+        Shake(amplitude, frequency, _shakeTime);
     }
 
     private void Start()
@@ -30,15 +32,14 @@ public class ShakeCamera : Singleton<ShakeCamera>
     {
         _cinemachineBMCP.m_AmplitudeGain = amplitude;
         _cinemachineBMCP.m_FrequencyGain = frequency;
-
         shakeTime = time;
     }
 
     private void Update()
     {
-        if (shakeTime > 0)
+        if (_shakeTime > 0)
         {
-            shakeTime -= Time.deltaTime;
+            _shakeTime -= Time.deltaTime;
         }
         else
         {

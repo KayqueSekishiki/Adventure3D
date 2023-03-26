@@ -30,6 +30,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void ResetLife()
     {
         _currentLife = startLife;
+        UpdateUI();
     }
 
     public void Damage(float f)
@@ -41,6 +42,7 @@ public class HealthBase : MonoBehaviour, IDamageable
             Kill();
         }
         UpdateUI();
+        ShakeCamera.Instance.Shake();
         OnDamage?.Invoke(this);
 
     }
