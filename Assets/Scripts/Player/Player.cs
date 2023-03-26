@@ -103,6 +103,16 @@ public class Player : Singleton<Player>//, IDamageable
         _animator.SetBool("Run", isWalking);
     }
 
+    [NaughtyAttributes.Button]
+    public void Respawn()
+    {
+        if (CheckpointManager.Instance.HasCheckpoint())
+        {
+            transform.position = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
+        }
+
+    }
+
 
     #region LIFE
     public void Damage(HealthBase h)
@@ -122,7 +132,23 @@ public class Player : Singleton<Player>//, IDamageable
             _alive = false;
             _animator.SetTrigger("Death");
             colliders.ForEach(i => i.enabled = false);
+
+            Invoke(nameof(Revive), 3f);
         }
+    }
+
+    private void Revive()
+    {
+        healthBase.ResetLife();
+        _alive = true;
+        _animator.SetTrigger("Revive");
+        Invoke(nameof(TurnOnColliders), 0.1f);
+        Respawn();
+    }
+
+    private void TurnOnColliders()
+    {
+        colliders.ForEach(i => i.enabled = true);
     }
     #endregion
 }

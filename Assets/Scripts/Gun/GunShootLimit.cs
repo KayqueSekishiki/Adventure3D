@@ -60,7 +60,13 @@ public class GunShootLimit : GunBase
         while (time < timeToRecharge)
         {
             time += Time.deltaTime;
-            uiFillUpdaters.ForEach(i => i.UpdateValue(time / timeToRecharge));
+
+            var gunUI = uiFillUpdaters.Find(i => i.name == "GunUI");
+            if (gunUI != null)
+            {
+                gunUI.UpdateValue(time / timeToRecharge);
+            }
+            //  uiFillUpdaters.ForEach(i => i.UpdateValue(time / timeToRecharge));
             yield return new WaitForEndOfFrame();
         }
         _currentShoots = 0;
@@ -71,7 +77,12 @@ public class GunShootLimit : GunBase
     {
         if (uiFillUpdaters != null)
         {
-            uiFillUpdaters.ForEach(i => i.UpdateValue(maxShoot, _currentShoots));
+            var gunUI = uiFillUpdaters.Find(i => i.name == "GunUI");
+            if (gunUI != null)
+            {
+                gunUI.UpdateValue(maxShoot, _currentShoots);
+            }
+            //uiFillUpdaters.ForEach(i => i.UpdateValue(maxShoot, _currentShoots));
         }
     }
 

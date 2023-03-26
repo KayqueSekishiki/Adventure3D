@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckpointBase : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
-    public int key = 01;
+    public int key = 1;
 
     private bool _checkpointActive = false;
     private string _checkpointKey = "CheckpointKey";
@@ -43,11 +43,11 @@ public class CheckpointBase : MonoBehaviour
 
     private void SaveCheckpoint()
     {
-        if (PlayerPrefs.GetInt(_checkpointKey, 0) > key)
+        /* if (PlayerPrefs.GetInt(_checkpointKey, 0) > key)
         {
             PlayerPrefs.SetInt(_checkpointKey, key);
-        }
-
+        } */
+        CheckpointManager.Instance.SaveCheckPoint(key);
         _checkpointActive = true;
     }
 }
