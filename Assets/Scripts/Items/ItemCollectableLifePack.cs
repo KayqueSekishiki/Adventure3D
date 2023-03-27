@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Items;
 
-public class ItemCollectableCoin : ItemCollectableBase
+public class ItemCollectableLifePack : ItemCollectableBase
 {
-    public int coinValue;
+    public int lifePackValue;
 
     protected override void OnCollect()
     {
         base.OnCollect();
-        ItemManager.Instance.AddByType(ItemType.COIN, coinValue);
+        ItemManager.Instance.AddByType(ItemType.LIFE_PACK, lifePackValue);
     }
 }
