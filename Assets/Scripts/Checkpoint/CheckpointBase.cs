@@ -8,7 +8,7 @@ public class CheckpointBase : MonoBehaviour
     public int key = 1;
 
     private bool _checkpointActive = false;
-    private string _checkpointKey = "CheckpointKey";
+   // private string _checkpointKey = "CheckpointKey";
 
     private void Start()
     {

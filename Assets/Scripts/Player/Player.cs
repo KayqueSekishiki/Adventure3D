@@ -40,8 +40,9 @@ public class Player : Singleton<Player>//, IDamageable
         if (healthBase == null) healthBase = GetComponent<HealthBase>();
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         OnValidate();
 
         healthBase.OnDamage += Damage;
@@ -151,8 +152,6 @@ public class Player : Singleton<Player>//, IDamageable
     }
 
 
-
-
     #region LIFE
     public void Damage(HealthBase h)
     {
@@ -198,7 +197,6 @@ public class Player : Singleton<Player>//, IDamageable
         {
             transform.position = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
         }
-
     }
     #endregion
 }
