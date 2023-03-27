@@ -12,6 +12,7 @@ public class Player : Singleton<Player>//, IDamageable
     public float speed;
     public float rotSpeed;
     public float gravity = -9.8f;
+    public float dTGravity;
     public float jumpForce = 15f;
 
     [Header("Run Setup")]
@@ -21,6 +22,8 @@ public class Player : Singleton<Player>//, IDamageable
 
     private float _vSpeed = 0f;
     private bool _alive = true;
+    private Vector3 _externalVelocity;
+    private float _externalVelocityDecrease = 1f;
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
@@ -100,18 +103,54 @@ public class Player : Singleton<Player>//, IDamageable
         speedVector.y = _vSpeed;
 
         _characterController.Move(speedVector * Time.deltaTime);
+
+        if (_externalVelocity.y > 0)
+        {
+             _externalVelocity.y -= dTGravity;
+
+            if (_externalVelocity.y < 0)
+            {
+                _externalVelocity.y = 0;
+            }
+        }
+
+        int reverseDirection = _externalVelocity.x > 0 ? -1 : 1;
+        float decrease = _externalVelocityDecrease * Time.deltaTime * reverseDirection;
+        float abs = Mathf.Abs(_externalVelocity.x);
+
+        if (abs < decrease && abs > 0.001f)
+        {
+            _externalVelocity.x = 0;
+        }
+        else
+        {
+            _externalVelocity.x += decrease;
+        }
+
+        reverseDirection = _externalVelocity.z > 0 ? -1 : 1;
+        decrease = _externalVelocityDecrease * Time.deltaTime * reverseDirection;
+        abs = Mathf.Abs(_externalVelocity.z);
+
+        if (abs < decrease && abs > 0.001f)
+        {
+            _externalVelocity.z = 0;
+        }
+        else
+        {
+            _externalVelocity.z += decrease;
+        }
+
+
         _animator.SetBool("Run", isWalking);
     }
 
-    [NaughtyAttributes.Button]
-    public void Respawn()
+    public void AddExternalVelocity(float velocity, Vector3 direction)
     {
-        if (CheckpointManager.Instance.HasCheckpoint())
-        {
-            transform.position = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
-        }
-
+        direction.Normalize();
+        _externalVelocity += direction * velocity;
     }
+
+
 
 
     #region LIFE
@@ -150,6 +189,16 @@ public class Player : Singleton<Player>//, IDamageable
     private void TurnOnColliders()
     {
         colliders.ForEach(i => i.enabled = true);
+    }
+
+    [NaughtyAttributes.Button]
+    public void Respawn()
+    {
+        if (CheckpointManager.Instance.HasCheckpoint())
+        {
+            transform.position = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
+        }
+
     }
     #endregion
 }

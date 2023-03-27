@@ -112,6 +112,11 @@ namespace Enemy
             if (p != null)
             {
                 p.healthBase.Damage(powerDamage);
+                IAddExternalVelocity externalVelocity = collision.transform.GetComponent<IAddExternalVelocity>();
+                if (externalVelocity != null)
+                {
+                    externalVelocity.AddExternalVelocity(2f, p.transform.position - transform.position);
+                }
             }
         }
 
