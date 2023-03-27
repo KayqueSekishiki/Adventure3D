@@ -3330,7 +3330,6 @@ MonoBehaviour:
   speed: 10
   rotSpeed: 250
   gravity: -29.4
-  dTGravity: 9
   jumpForce: 15
   keyRun: 120
   speedRun: 1.5
@@ -8018,7 +8017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323011743}
-  m_LocalRotation: {x: 0.15097518, y: 0.7232255, z: -0.16725709, w: 0.6528219}
+  m_LocalRotation: {x: 0.15097517, y: 0.7232255, z: -0.16725707, w: 0.65282196}
   m_LocalPosition: {x: -80.98016, y: 25.565222, z: -227.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9760,7 +9759,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529364973}
-  m_LocalRotation: {x: -0.000000003767272, y: 0.9522955, z: -0.30517754, w: -0.000000011755636}
+  m_LocalRotation: {x: 0.000000009095001, y: 0.9522955, z: -0.30517757, w: 0.00000002838062}
   m_LocalPosition: {x: -65.98016, y: 22.565222, z: -220.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

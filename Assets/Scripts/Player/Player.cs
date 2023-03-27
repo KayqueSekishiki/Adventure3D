@@ -12,7 +12,6 @@ public class Player : Singleton<Player>//, IDamageable
     public float speed;
     public float rotSpeed;
     public float gravity = -9.8f;
-    public float dTGravity;
     public float jumpForce = 15f;
 
     [Header("Run Setup")]
@@ -74,6 +73,7 @@ public class Player : Singleton<Player>//, IDamageable
 
         var inputAxisVertical = Input.GetAxis("Vertical");
         var speedVector = inputAxisVertical * speed * transform.forward;
+        var dTGravity = 1f;
 
         if (_characterController.isGrounded)
         {
@@ -106,7 +106,7 @@ public class Player : Singleton<Player>//, IDamageable
 
         if (_externalVelocity.y > 0)
         {
-             _externalVelocity.y -= dTGravity;
+            _externalVelocity.y -= dTGravity;
 
             if (_externalVelocity.y < 0)
             {
