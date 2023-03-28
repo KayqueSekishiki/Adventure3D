@@ -76,6 +76,7 @@ public class Player : Singleton<Player>//, IDamageable
         var speedVector = inputAxisVertical * speed * transform.forward;
         var dTGravity = 1f;
 
+
         if (_characterController.isGrounded)
         {
             _vSpeed = 0;
@@ -104,7 +105,6 @@ public class Player : Singleton<Player>//, IDamageable
         speedVector.y = _vSpeed;
 
         _characterController.Move(speedVector * Time.deltaTime);
-
         if (_externalVelocity.y > 0)
         {
             _externalVelocity.y -= dTGravity;
