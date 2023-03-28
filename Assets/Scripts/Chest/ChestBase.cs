@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class ChestBase : MonoBehaviour
 {
+    public KeyCode keyCode = KeyCode.E;
     public Animator animator;
     public string triggerOpen = "Open";
 
@@ -14,6 +15,7 @@ public class ChestBase : MonoBehaviour
     public Ease tweenEase = Ease.OutBack;
 
     private float _startScale;
+    private bool _chestOpened = false;
 
     void Start()
     {
@@ -29,13 +31,20 @@ public class ChestBase : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(keyCode) && notification.activeSelf)
+        {
+            OpenChest();
+        }
     }
+
 
     [NaughtyAttributes.Button]
     private void OpenChest()
     {
+        if (_chestOpened) return;
         animator.SetTrigger(triggerOpen);
+        _chestOpened = true;
+        HideNotification();
     }
 
     private void OnTriggerEnter(Collider other)
