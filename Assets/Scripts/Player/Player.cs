@@ -164,6 +164,20 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
         xExternalValid = yExternalValid = zExternalValid = true;
     }
 
+    public void ChangeSpeed(float speed, float duration)
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speed, duration));
+    }
+
+    IEnumerator ChangeSpeedCoroutine(float localSpeed, float duration)
+    {
+        var defaultSpeed = speed;
+        speed = localSpeed;
+        yield return new WaitForSeconds(duration);
+        speed = defaultSpeed;
+    }
+
+
 
     #region LIFE
     public void Damage(HealthBase h)

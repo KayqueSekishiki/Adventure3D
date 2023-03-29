@@ -8,8 +8,6 @@ public class Jumper : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Colidir com Algo");
-
         Player p = collision.transform.GetComponent<Player>();
 
         if (p != null)
