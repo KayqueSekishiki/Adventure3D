@@ -6,7 +6,7 @@ using Ebac.Core.Singleton;
 using Ebac.StateMachine;
 using NaughtyAttributes;
 
-public class Player : Singleton<Player>//, IDamageable
+public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 {
     [HideInInspector] public List<Collider> colliders;
     public float speed;
