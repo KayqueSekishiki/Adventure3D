@@ -14,6 +14,9 @@ public class ChestBase : MonoBehaviour
     public float tweenDuration = .2f;
     public Ease tweenEase = Ease.OutBack;
 
+    [Space]
+    public ChestItemBase chestItem;
+
     private float _startScale;
     private bool _chestOpened = false;
 
@@ -45,6 +48,18 @@ public class ChestBase : MonoBehaviour
         animator.SetTrigger(triggerOpen);
         _chestOpened = true;
         HideNotification();
+        Invoke(nameof(ShowItem), 1f);
+    }
+
+    private void ShowItem()
+    {
+        chestItem.ShowItem();
+        Invoke(nameof(CollectItem), 1f);
+    }
+
+    private void CollectItem()
+    {
+        chestItem.Collect();
     }
 
     private void OnTriggerEnter(Collider other)

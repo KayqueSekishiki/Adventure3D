@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ChestItemBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public virtual void Collect()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void ShowItem()
     {
-        
     }
 }
