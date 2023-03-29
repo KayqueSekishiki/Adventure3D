@@ -86,7 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -227,7 +227,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: e2d2ffff
       m_LastClickedID: -11550
-      m_ExpandedIDs: e2d2ffffe6faffff
+      m_ExpandedIDs: dec1feffeec7feffe6faffffb06100004e620000a2620000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 990
     height: 555
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -536,9 +536,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 327.51663, y: -16.271048, z: 122.68671}
+    m_Target: {x: 197.19931, y: 40.57095, z: -70.13239}
     speed: 2
-    m_Value: {x: 327.51663, y: -16.271048, z: 122.68671}
+    m_Value: {x: 197.19931, y: 40.57095, z: -70.13239}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -585,13 +585,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.1528112, y: -0.4038085, z: 0.068802856, w: -0.8998171}
+    m_Target: {x: -0.2666938, y: 0.15531367, z: -0.042429205, w: -0.9507184}
     speed: 2
-    m_Value: {x: -0.1527488, y: -0.4036436, z: 0.06877476, w: -0.89944965}
+    m_Value: {x: -0.26657206, y: 0.15524277, z: -0.042409837, w: -0.9502844}
   m_Size:
-    m_Target: 28.923273
+    m_Target: 5.9369607
     speed: 2
-    m_Value: 28.923273
+    m_Value: 5.9369607
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 106
+  controlID: 2711
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -849,22 +849,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Kaique2\Desktop\Projetos de Jogos\EBAC\Adventure3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 155}
-    m_SelectedIDs: b26b0000
-    m_LastClickedID: 27570
-    m_ExpandedIDs: 000000005a6b00005c6b00005e6b0000606b0000626b0000946b0000b86b000000ca9a3bffffff7f
+    m_SelectedIDs: b86b0000
+    m_LastClickedID: 27576
+    m_ExpandedIDs: 000000005a6b00005c6b00005e6b0000606b0000626b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -892,7 +892,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a6b00005c6b00005e6b0000606b0000626b0000
+    m_ExpandedIDs: 000000005a6b00005c6b00005e6b0000606b0000626b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 24520
+  m_LastSelectedObjectID: -11550
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52

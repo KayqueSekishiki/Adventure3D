@@ -22,7 +22,8 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
     private float _vSpeed = 0f;
     private bool _alive = true;
     private Vector3 _externalVelocity;
-    private float _externalVelocityDecrease = 1f;
+    private bool xExternalValid, yExternalValid, zExternalValid;
+    private float _externalVelocityDecrease = 20f;
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
@@ -106,39 +107,50 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
         _characterController.Move(_externalVelocity * Time.deltaTime + speedVector * Time.deltaTime);
 
-        if (_externalVelocity.y > 0)
+        if (yExternalValid)
         {
-            _externalVelocity.y -= dTGravity;
-            if (_externalVelocity.y < 0)
+            if (_externalVelocity.y > 0)
             {
-                _externalVelocity.y = 0;
+                _externalVelocity.y += dTGravity;
+                if (_externalVelocity.y < 0)
+                {
+                    _externalVelocity.y = 0;
+                    yExternalValid = false;
+                }
             }
         }
 
         int reverseDirection = _externalVelocity.x > 0 ? -1 : 1;
         float decrease = _externalVelocityDecrease * Time.deltaTime * reverseDirection;
         float abs = Mathf.Abs(_externalVelocity.x);
-
-        if (abs < decrease && abs > 0.001f)
+        if (xExternalValid)
         {
-            _externalVelocity.x = 0;
-        }
-        else
-        {
-            _externalVelocity.x += decrease;
+            if (abs < decrease && abs > 0.001f)
+            {
+                _externalVelocity.x = 0;
+                xExternalValid = false;
+            }
+            else
+            {
+                _externalVelocity.x += decrease;
+            }
         }
 
         reverseDirection = _externalVelocity.z > 0 ? -1 : 1;
         decrease = _externalVelocityDecrease * Time.deltaTime * reverseDirection;
         abs = Mathf.Abs(_externalVelocity.z);
 
-        if (abs < decrease && abs > 0.001f)
+        if (zExternalValid)
         {
-            _externalVelocity.z = 0;
-        }
-        else
-        {
-            _externalVelocity.z += decrease;
+            if (abs < decrease && abs > 0.001f)
+            {
+                _externalVelocity.z = 0;
+                zExternalValid = false;
+            }
+            else
+            {
+                _externalVelocity.z += decrease;
+            }
         }
 
 
@@ -149,6 +161,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
     {
         direction.Normalize();
         _externalVelocity += direction * velocity;
+        xExternalValid = yExternalValid = zExternalValid = true;
     }
 
 

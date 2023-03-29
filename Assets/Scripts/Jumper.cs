@@ -11,10 +11,14 @@ public class Jumper : MonoBehaviour
         Debug.Log("Colidir com Algo");
 
         Player p = collision.transform.GetComponent<Player>();
+
         if (p != null)
         {
-            Debug.Log("Colidir com o Player");
-            p.AddExternalVelocity(bounceForce, Vector3.up);
+            IAddExternalVelocity externalVelocity = collision.transform.GetComponent<IAddExternalVelocity>();
+            if (externalVelocity != null)
+            {
+                externalVelocity.AddExternalVelocity(bounceForce, Vector3.up);
+            }
         }
     }
 }
