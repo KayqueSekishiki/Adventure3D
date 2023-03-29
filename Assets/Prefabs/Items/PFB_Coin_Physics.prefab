@@ -72,6 +72,7 @@ MonoBehaviour:
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
   coinValue: 1
+  otherCollider: {fileID: 2701970384497956469}
 --- !u!95 &8480825918947131289
 Animator:
   serializedVersion: 5

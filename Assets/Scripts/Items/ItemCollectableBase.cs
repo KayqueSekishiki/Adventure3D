@@ -57,6 +57,7 @@ namespace Items
         protected virtual void HideItems()
         {
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
         protected virtual void OnCollect()

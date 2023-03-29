@@ -87,7 +87,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     protected virtual void Kill()
     {
-        if (destroyOnKill) Destroy(gameObject, 3f);
+        if (destroyOnKill) Destroy(gameObject, 0f);
 
         OnKill?.Invoke(this);
     }
