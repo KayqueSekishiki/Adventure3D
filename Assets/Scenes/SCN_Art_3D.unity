@@ -3508,11 +3508,6 @@ RectTransform:
   m_AnchoredPosition: {x: 350, y: -192}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &479849621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1, type: 3}
-  m_PrefabInstance: {fileID: 1755247079}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &480208794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3987,6 +3982,7 @@ MonoBehaviour:
   - {fileID: 3079867275920594832, guid: cbeda963ba48ce447960b5a2413ff037, type: 3}
   - {fileID: 6703907304078450835, guid: 43dfe6a066d1ebc4496927a9ee3dcf21, type: 3}
   gunPosition: {fileID: 231268945}
+  flashColor: {fileID: 1148080548}
 --- !u!65 &524351105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8473,6 +8469,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 1147327385}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1148080548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1148080548, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 1755247079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9fc1e45fff36c4f838e6593027fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1149129668
 GameObject:
   m_ObjectHideFlags: 0
@@ -9647,7 +9654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323011743}
-  m_LocalRotation: {x: 0.1509754, y: 0.7232246, z: -0.16725686, w: 0.65282303}
+  m_LocalRotation: {x: 0.1509754, y: 0.72322464, z: -0.16725689, w: 0.652823}
   m_LocalPosition: {x: -80.98016, y: 25.565222, z: -227.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17782,14 +17789,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 524351100}
     m_Modifications:
-    - target: {fileID: 1178427744, guid: 89e20167823a30d459856414377997d1, type: 3}
-      propertyPath: duration
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019968189, guid: 89e20167823a30d459856414377997d1, type: 3}
-      propertyPath: duration
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5156129202013452133, guid: 89e20167823a30d459856414377997d1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17850,21 +17849,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7193805671317595757, guid: 89e20167823a30d459856414377997d1, type: 3}
   m_PrefabInstance: {fileID: 1755247079}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1755247082
+--- !u!114 &1755247082 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1755247082, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 1755247079}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479849621}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f49df27d55c884e43a4786f8c0879272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 2069898793}
-  texture: {fileID: 2800000, guid: 5f5a456c988c4c245abb01477577f26f, type: 3}
-  shaderIdName: _EmissionMap
 --- !u!1001 &1765309616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20843,11 +20838,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 217979795217936478, guid: d56df1b384af18f4f9a3b35a873c87e2, type: 3}
   m_PrefabInstance: {fileID: 2069321453}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &2069898793 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8517986018976716636, guid: 89e20167823a30d459856414377997d1, type: 3}
-  m_PrefabInstance: {fileID: 1755247079}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2071971932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23629,6 +23619,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.1
   loop: 1
+  colorParameter: _EmissionColor
 --- !u!23 &7381745845470657085
 MeshRenderer:
   m_ObjectHideFlags: 0
