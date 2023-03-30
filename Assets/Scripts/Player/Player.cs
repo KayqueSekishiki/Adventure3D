@@ -194,6 +194,20 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
         _clothChanger.ResetTexture();
     }
 
+    public void ChangeJumpForce(float jumpForce, float duration)
+    {
+        StartCoroutine(ChangeJumpForceCoroutine(jumpForce, duration));
+    }
+
+    IEnumerator ChangeJumpForceCoroutine(float jumpForce, float duration)
+    {
+        var defaultJumpForce = this.jumpForce;
+        this.jumpForce = jumpForce;
+        yield return new WaitForSeconds(duration);
+        this.jumpForce = defaultJumpForce;
+
+    }
+
 
 
     #region LIFE
