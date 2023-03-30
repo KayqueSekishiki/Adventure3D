@@ -35,7 +35,6 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup = new();
         _saveSetup.lastLevel = 0;
-        _saveSetup.playerName = "Kayque";
     }
 
 
@@ -53,13 +52,7 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lastLevel = level;
         SaveItems();
         Save();
-    }
-
-    public void SaveName(string text)
-    {
-        _saveSetup.playerName = text;
-        Save();
-    }
+    }  
 
     public void SaveItems()
     {
@@ -102,7 +95,7 @@ public class SaveSetup
     public int lastLevel;
     public int coins;
     public int lifePacks;
-
-
-    public string playerName;
+    public int currentCheckpoint;
+    public int currentPlayerHealth;
+    public int currentCloth;
 }
