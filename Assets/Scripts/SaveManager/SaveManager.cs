@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,14 +8,33 @@ using Ebac.Core.Singleton;
 public class SaveManager : Singleton<SaveManager>
 {
 
-    private SaveSetup _saveSetup;
+    [SerializeField] private SaveSetup _saveSetup;
+    private string _path = Application.streamingAssetsPath + "/save.txt";
+
+    public int lastLevel;
+
+    public Action<SaveSetup> FileLoaded;
+    public SaveSetup Setup
+    {
+        get { return _saveSetup; }
+    }
+
 
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        Invoke(nameof(LoadFile), .1f);
+    }
+
+    private void CreateNewSave()
+    {
         _saveSetup = new();
-        _saveSetup.lastLevel = 2;
+        _saveSetup.lastLevel = 0;
         _saveSetup.playerName = "Kayque";
     }
 
@@ -50,29 +70,29 @@ public class SaveManager : Singleton<SaveManager>
     #endregion
     private void SaveFile(string json)
     {
-        string path = Application.streamingAssetsPath + "/save.txt";
-
         string fileLoaded = "";
-
-        if (File.Exists(path)) fileLoaded = File.ReadAllText(path);
-
-        Debug.Log(path);
-
-        File.WriteAllText(path, json);
-    }
-
-
-    // FOR DEBUG
-    [NaughtyAttributes.Button]
-    private void SaveLevelOne()
-    {
-        SaveLastLevel(1);
+        if (File.Exists(_path)) fileLoaded = File.ReadAllText(_path);
+        Debug.Log(_path);
+        File.WriteAllText(_path, json);
     }
 
     [NaughtyAttributes.Button]
-    private void SaveLevelFive()
+    private void LoadFile()
     {
-        SaveLastLevel(5);
+        string fileLoaded = "";
+        if (File.Exists(_path))
+        {
+            fileLoaded = File.ReadAllText(_path);
+            _saveSetup = JsonUtility.FromJson<SaveSetup>(fileLoaded);
+            lastLevel = _saveSetup.lastLevel;
+        }
+        else
+        {
+            CreateNewSave();
+            Save();
+        }
+
+        FileLoaded.Invoke(_saveSetup);
     }
 }
 
