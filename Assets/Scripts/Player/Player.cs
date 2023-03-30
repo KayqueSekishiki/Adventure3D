@@ -5,6 +5,7 @@ using UnityEngine;
 using Ebac.Core.Singleton;
 using Ebac.StateMachine;
 using NaughtyAttributes;
+using Cloth;
 
 public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 {
@@ -34,6 +35,9 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
     [Header("Life")]
     public HealthBase healthBase;
+
+    [Space]
+    [SerializeField] private ClothChanger _clothChanger;
 
 
     private void OnValidate()
@@ -175,6 +179,19 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
         speed = localSpeed;
         yield return new WaitForSeconds(duration);
         speed = defaultSpeed;
+    }
+
+    public void ChangeTexture(ClothSetup setup, float duration)
+    {
+        StartCoroutine(ChangeTextureCoroutine(setup, duration));
+
+    }
+
+    IEnumerator ChangeTextureCoroutine(ClothSetup setup, float duration)
+    {
+        _clothChanger.ChangeTexture(setup);
+        yield return new WaitForSeconds(duration);
+        _clothChanger.ResetTexture();
     }
 
 

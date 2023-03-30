@@ -3579,6 +3579,7 @@ MonoBehaviour:
   - {fileID: 1178427744}
   - {fileID: 2019968189}
   healthBase: {fileID: 524351106}
+  _clothChanger: {fileID: 1755247082}
 --- !u!4 &524351100
 Transform:
   m_ObjectHideFlags: 0
@@ -4672,8 +4673,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 702003280}
-  - component: {fileID: 702003279}
   - component: {fileID: 702003278}
+  - component: {fileID: 702003281}
   m_Layer: 0
   m_Name: ItemClothSpeed
   m_TagString: Untagged
@@ -4694,20 +4695,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &702003279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702003277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46cb882f12761a14c8b5f744567211ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clothType: 0
-  compareTag: Player
 --- !u!4 &702003280
 Transform:
   m_ObjectHideFlags: 0
@@ -4724,6 +4711,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702003281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702003277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709eeb8e43a1ad842a70ab7abaf0542d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothType: 0
+  duration: 2
+  compareTag: Player
+  targetSpeed: 20
 --- !u!1001 &704143144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11014,7 +11017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529364973}
-  m_LocalRotation: {x: 2.6478695e-16, y: 0.9522955, z: -0.30517754, w: -4.196522e-16}
+  m_LocalRotation: {x: 0.000000006077086, y: 0.9522955, z: -0.30517757, w: 0.000000018963327}
   m_LocalPosition: {x: -65.98016, y: 22.565222, z: -220.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
