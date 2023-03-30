@@ -22,6 +22,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
     private float _vSpeed = 0f;
     private bool _alive = true;
+    private bool _jumping = false;
     private Vector3 _externalVelocity;
     private bool xExternalValid, yExternalValid, zExternalValid;
     private float _externalVelocityDecrease = 20f;
@@ -83,10 +84,22 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
         if (_characterController.isGrounded)
         {
+            if (_jumping)
+            {
+                _jumping = false;
+                _animator.SetTrigger("Landing");
+            }
+
             _vSpeed = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _vSpeed = jumpForce;
+
+                if (!_jumping)
+                {
+                    _jumping = true;
+                    _animator.SetTrigger("Jump");
+                }
             }
         }
 
