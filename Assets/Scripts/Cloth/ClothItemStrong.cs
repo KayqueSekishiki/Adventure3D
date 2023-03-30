@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Cloth
 {
-    public class ClothItemSpeed : ClothItemBase
+    public class ClothItemStrong : ClothItemBase
     {
-        public float targetSpeed = 2f;
+        public float damageMultiply = 0.5f;
 
         public override void Collect()
         {
             base.Collect();
-            Player.Instance.ChangeSpeed(targetSpeed, duration);
+            Player.Instance.healthBase.ChangeDamageMultiply(damageMultiply, duration);
         }
     }
 }

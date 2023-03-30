@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cloth;
 
 public class HealthBase : MonoBehaviour, IDamageable
 {
@@ -18,9 +19,9 @@ public class HealthBase : MonoBehaviour, IDamageable
     public float recoveryTimeDuration = 2f;
     public bool recoveryEnabled = false;
 
-
     private float recoveryCount;
 
+    public float damageMultiply = 1f;
 
     private void Awake()
     {
@@ -49,17 +50,10 @@ public class HealthBase : MonoBehaviour, IDamageable
         {
             if (recoveryCount >= recoveryTimeDuration)
             {
-                Debug.Log("Recovery");
-
-                _currentLife -= f;
+                _currentLife -= f * damageMultiply;
                 ShakeCamera.Instance.Shake();
                 OnDamage?.Invoke(this);
                 recoveryCount = 0;
-            }
-            else
-            {
-                Debug.Log("EM Recuperação");
-
             }
         }
         else
@@ -104,4 +98,20 @@ public class HealthBase : MonoBehaviour, IDamageable
             uiFillUpdaters.ForEach(i => i.UpdateValue((float)_currentLife / startLife));
         }
     }
+
+    public void ChangeDamageMultiply(float damageMultiply, float duration)
+    {
+        StartCoroutine(ChangeDamageMultiplyCoroutine(damageMultiply, duration));
+
+    }
+
+    IEnumerator ChangeDamageMultiplyCoroutine(float damageMultiply, float duration)
+    {
+        this.damageMultiply = damageMultiply;
+        yield return new WaitForSeconds(duration);
+        this.damageMultiply = 1f;
+
+    }
+
+
 }
