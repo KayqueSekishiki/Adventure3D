@@ -2158,6 +2158,7 @@ MonoBehaviour:
   checkpoints:
   - {fileID: 1879935445}
   - {fileID: 1380774627}
+  - {fileID: 2127596290}
 --- !u!4 &298909057
 Transform:
   m_ObjectHideFlags: 0
@@ -19279,7 +19280,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323011743}
-  m_LocalRotation: {x: 0.15098068, y: 0.7232041, z: -0.16725214, w: 0.6528456}
+  m_LocalRotation: {x: 0.15098068, y: 0.7232041, z: -0.16725215, w: 0.6528456}
   m_LocalPosition: {x: -80.98016, y: 25.565222, z: -227.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

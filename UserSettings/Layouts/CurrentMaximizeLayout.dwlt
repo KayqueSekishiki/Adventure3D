@@ -187,8 +187,8 @@ MonoBehaviour:
     y: 0
     width: 468
     height: 577
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 23747
+  controlID: 30394
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -923,18 +923,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c623000030630100b80802004cc8020036680000b63e020062a00300a8f20300d8f70300000000006c3b0200a6320300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: DestructableItem
-      m_OriginalName: DestructableItem
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 25808
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -141980
+  m_LastSelectedObjectID: 222288
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
