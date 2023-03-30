@@ -1,4 +1,6 @@
 {
     "lastLevel": 1,
+    "coins": 4,
+    "lifePacks": 2,
     "playerName": "Kayque"
 }
