@@ -16,7 +16,7 @@ public class CheckpointManager : Singleton<CheckpointManager>
     private void LoadCurrentCheckpointFromSave()
     {
         lastCheckPointKey = SaveManager.Instance.Setup.currentCheckpoint;
-        HasCheckpoint();
+        Player.Instance.Respawn();
     }
 
     public bool HasCheckpoint()

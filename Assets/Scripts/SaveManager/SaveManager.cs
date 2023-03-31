@@ -37,8 +37,8 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.coins = 0;
         _saveSetup.lifePacks = 0;
         _saveSetup.currentCheckpoint = 0;
-        _saveSetup.currentPlayerHealth = Player.Instance.healthBase.startLife;
-        _saveSetup.currentCloth = (Texture2D)clothChanger.mesh.materials[0].GetTexture("_EmissionMap");
+      //  _saveSetup.currentPlayerHealth = Player.Instance.healthBase.startLife;
+       // _saveSetup.currentCloth = (Texture2D)clothChanger.mesh.materials[0].GetTexture("_EmissionMap");
     }
 
 
@@ -56,8 +56,8 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lastLevel = level;
         SaveItems();
         SaveLastCheckpoint();
-        SaveCurrentPlayerHealth();
-        SaveCurrentPlayerCloth();
+       // SaveCurrentPlayerHealth();
+        //SaveCurrentPlayerCloth();
         Save();
     }
 
@@ -74,22 +74,22 @@ public class SaveManager : Singleton<SaveManager>
         Save();
     }
 
-    public void SaveCurrentPlayerHealth()
-    {
-        _saveSetup.currentPlayerHealth = Player.Instance.healthBase.currentLife;
-        Save();
-    }
+    //public void SaveCurrentPlayerHealth()
+    //{
+    //    _saveSetup.currentPlayerHealth = Player.Instance.healthBase.currentLife;
+    //    Save();
+    //}
 
-    public void SaveCurrentPlayerCloth()
-    {
-        _saveSetup.currentCloth = (Texture2D)clothChanger.mesh.materials[0].GetTexture("_EmissionMap");
-        Save();
-    }
+    //public void SaveCurrentPlayerCloth()
+    //{
+    //    _saveSetup.currentCloth = (Texture2D)clothChanger.mesh.materials[0].GetTexture("_EmissionMap");
+    //    Save();
+    //}
 
     #endregion
     private void SaveFile(string json)
     {
-        string fileLoaded = "";
+        string fileLoaded;
         if (File.Exists(_path)) fileLoaded = File.ReadAllText(_path);
         Debug.Log(_path);
         File.WriteAllText(_path, json);
@@ -98,7 +98,7 @@ public class SaveManager : Singleton<SaveManager>
     [NaughtyAttributes.Button]
     private void LoadFile()
     {
-        string fileLoaded = "";
+        string fileLoaded;
         if (File.Exists(_path))
         {
             fileLoaded = File.ReadAllText(_path);

@@ -1,0 +1,10 @@
+{
+    "lastLevel": 1,
+    "coins": 0,
+    "lifePacks": 1,
+    "currentCheckpoint": 0,
+    "currentPlayerHealth": 0.0,
+    "currentCloth": {
+        "instanceID": 0
+    }
+}
