@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
+using Cloth;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -12,12 +13,10 @@ public class SaveManager : Singleton<SaveManager>
     private string _path = Application.streamingAssetsPath + "/save.txt";
 
     public int lastLevel;
+    public ClothChanger clothChanger;
 
     public Action<SaveSetup> FileLoaded;
-    public SaveSetup Setup
-    {
-        get { return _saveSetup; }
-    }
+    public SaveSetup Setup { get { return _saveSetup; } }
 
 
     protected override void Awake()
@@ -35,6 +34,11 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup = new();
         _saveSetup.lastLevel = 0;
+        _saveSetup.coins = 0;
+        _saveSetup.lifePacks = 0;
+        _saveSetup.currentCheckpoint = 0;
+        _saveSetup.currentPlayerHealth = Player.Instance.healthBase.startLife;
+        _saveSetup.currentCloth = (Texture2D)clothChanger.mesh.materials[0].GetTexture("_EmissionMap");
     }
 
 
@@ -51,8 +55,11 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup.lastLevel = level;
         SaveItems();
+        SaveLastCheckpoint();
+        SaveCurrentPlayerHealth();
+        SaveCurrentPlayerCloth();
         Save();
-    }  
+    }
 
     public void SaveItems()
     {
@@ -60,6 +67,25 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lifePacks = Items.ItemManager.Instance.GetItemByType(Items.ItemType.LIFE_PACK).soInt.value;
         Save();
     }
+
+    public void SaveLastCheckpoint()
+    {
+        _saveSetup.currentCheckpoint = CheckpointManager.Instance.lastCheckPointKey;
+        Save();
+    }
+
+    public void SaveCurrentPlayerHealth()
+    {
+        _saveSetup.currentPlayerHealth = Player.Instance.healthBase.currentLife;
+        Save();
+    }
+
+    public void SaveCurrentPlayerCloth()
+    {
+        _saveSetup.currentCloth = (Texture2D)clothChanger.mesh.materials[0].GetTexture("_EmissionMap");
+        Save();
+    }
+
     #endregion
     private void SaveFile(string json)
     {
@@ -96,6 +122,6 @@ public class SaveSetup
     public int coins;
     public int lifePacks;
     public int currentCheckpoint;
-    public int currentPlayerHealth;
-    public int currentCloth;
+    public float currentPlayerHealth;
+    public Texture2D currentCloth;
 }

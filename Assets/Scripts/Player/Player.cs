@@ -218,7 +218,6 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
         this.jumpForce = jumpForce;
         yield return new WaitForSeconds(duration);
         this.jumpForce = defaultJumpForce;
-
     }
 
 

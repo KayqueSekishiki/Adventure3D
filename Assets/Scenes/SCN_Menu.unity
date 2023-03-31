@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 752347756}
   - component: {fileID: 752347755}
   m_Layer: 0
-  m_Name: SaveManager
+  m_Name: PFB_SaveManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -701,11 +701,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saveSetup:
-    lastLevel: 1
-    coins: 4
-    lifePacks: 2
-    playerName: Kayque
+    lastLevel: 0
+    coins: 0
+    lifePacks: 0
+    currentCheckpoint: 0
+    currentPlayerHealth: 0
+    currentCloth: {fileID: 0}
   lastLevel: 0
+  clothChanger: {fileID: 0}
 --- !u!4 &752347756
 Transform:
   m_ObjectHideFlags: 0

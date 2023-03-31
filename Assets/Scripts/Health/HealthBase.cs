@@ -11,6 +11,9 @@ public class HealthBase : MonoBehaviour, IDamageable
     public bool destroyOnKill = false;
     [SerializeField] private float _currentLife;
 
+    public float currentLife { get { return _currentLife; } }
+
+
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
 
@@ -20,12 +23,22 @@ public class HealthBase : MonoBehaviour, IDamageable
     public bool recoveryEnabled = false;
 
     private float recoveryCount;
+    private bool iAmPlayer = false;
 
     public float damageMultiply = 1f;
 
     private void Awake()
     {
         Init();
+    }
+
+    private void Start()
+    {
+        if (iAmPlayer)
+        {
+            _currentLife = SaveManager.Instance.Setup.currentPlayerHealth;
+            UpdateUI();
+        }
     }
 
     private void Update()

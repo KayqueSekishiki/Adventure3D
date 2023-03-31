@@ -33,7 +33,9 @@ public class EndGame : MonoBehaviour
         {
             item.SetActive(true);
             item.transform.DOScale(0, .2f).SetEase(Ease.OutBack).From();
-            SaveManager.Instance.SaveLastLevel(currentLevel);
         }
+
+        CheckpointManager.Instance.lastCheckPointKey = 0;
+        SaveManager.Instance.SaveLastLevel(currentLevel);
     }
 }
