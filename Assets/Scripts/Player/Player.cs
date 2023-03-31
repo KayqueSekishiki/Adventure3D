@@ -40,6 +40,8 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
     [Space]
     [SerializeField] private ClothChanger _clothChanger;
 
+    public SOPlayerData playerData;
+
 
     private void OnValidate()
     {
@@ -57,7 +59,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
     private void Start()
     {
-        Init();
+      Init();
     }
 
     public void Init()
@@ -72,6 +74,8 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
                 colliders.Add(c);
             }
         }
+        var clothSetup = ClothManager.Instance.GetSetupByType(playerData.currentClothType);
+        ChangeTexture(clothSetup, 4f);
     }
 
     private void Update()
@@ -197,14 +201,16 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
     public void ChangeTexture(ClothSetup setup, float duration)
     {
         StartCoroutine(ChangeTextureCoroutine(setup, duration));
-
     }
 
     IEnumerator ChangeTextureCoroutine(ClothSetup setup, float duration)
     {
         _clothChanger.ChangeTexture(setup);
+        playerData.currentClothType = setup.clothType;
         yield return new WaitForSeconds(duration);
         _clothChanger.ResetTexture();
+        playerData.currentClothType = ClothType.DEFAULT;
+
     }
 
     public void ChangeJumpForce(float jumpForce, float duration)

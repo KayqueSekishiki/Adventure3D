@@ -8,6 +8,7 @@ namespace Cloth
 {
     public enum ClothType
     {
+        DEFAULT,
         SPEED,
         STRONG,
         JUMPER
@@ -19,14 +20,14 @@ namespace Cloth
 
         public ClothSetup GetSetupByType(ClothType clothType)
         {
-            return clothSetups.Find(i => i.clothtype == clothType);
+            return clothSetups.Find(i => i.clothType == clothType);
         }
     }
 
     [System.Serializable]
     public class ClothSetup
     {
-        public ClothType clothtype;
+        public ClothType clothType;
         public Texture2D texture;
     }
 

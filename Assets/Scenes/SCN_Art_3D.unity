@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ff207a70a5c30498f12c2cd9933c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothType: 1
+  clothType: 2
   duration: 4
   compareTag: Player
   damageMultiply: 0.5
@@ -8839,6 +8839,7 @@ MonoBehaviour:
   - {fileID: 2019968189}
   healthBase: {fileID: 524351106}
   _clothChanger: {fileID: 1755247082}
+  playerData: {fileID: 11400000, guid: 3899b8ec296f2464d81f1e88f3d1d3b8, type: 2}
 --- !u!4 &524351100
 Transform:
   m_ObjectHideFlags: 0
@@ -9154,11 +9155,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothSetups:
-  - clothtype: 0
+  - clothType: 0
+    texture: {fileID: 2800000, guid: 8d0f7b33a4f3bf5459574270675b2718, type: 3}
+  - clothType: 1
     texture: {fileID: 2800000, guid: 5f5a456c988c4c245abb01477577f26f, type: 3}
-  - clothtype: 1
+  - clothType: 2
     texture: {fileID: 2800000, guid: 6550ee2d450dcdb4e87b30b34c9b6b44, type: 3}
-  - clothtype: 2
+  - clothType: 3
     texture: {fileID: 2800000, guid: c97d46f9aec8cdc4cba7c5a41a756fec, type: 3}
 --- !u!4 &547174578
 Transform:
@@ -10200,7 +10203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709eeb8e43a1ad842a70ab7abaf0542d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothType: 0
+  clothType: 1
   duration: 4
   compareTag: Player
   targetSpeed: 20
@@ -19445,7 +19448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad3b2de06f28444282408296103d617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothType: 2
+  clothType: 3
   duration: 4
   compareTag: Player
   jumpForce: 50
@@ -20026,7 +20029,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338587214}
-  m_LocalRotation: {x: 0.011403648, y: 0.9831259, z: -0.06583566, w: 0.170291}
+  m_LocalRotation: {x: 0.011403654, y: 0.9831259, z: -0.065835685, w: 0.17029104}
   m_LocalPosition: {x: -65.98016, y: 18.565222, z: -220.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21405,7 +21408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.011403648, y: 0.9831259, z: -0.06583566, w: 0.170291}
+  m_LocalRotation: {x: 0.011403654, y: 0.9831259, z: -0.065835685, w: 0.17029104}
   m_LocalPosition: {x: 321.05, y: 16, z: 68.729996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21884,7 +21887,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529364973}
-  m_LocalRotation: {x: 0.000000006077086, y: 0.9522955, z: -0.30517757, w: 0.000000018963327}
+  m_LocalRotation: {x: -0.000000003767272, y: 0.9522955, z: -0.30517754, w: -0.000000011755636}
   m_LocalPosition: {x: -65.98016, y: 22.565222, z: -220.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
