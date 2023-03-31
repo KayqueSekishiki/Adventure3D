@@ -59,7 +59,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
     private void Start()
     {
-      Init();
+        Init();
     }
 
     public void Init()
@@ -73,7 +73,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
             {
                 colliders.Add(c);
             }
-        }      
+        }
     }
 
     private void Update()

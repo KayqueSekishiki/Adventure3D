@@ -36,6 +36,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         if (iAmPlayer)
         {
+            Player.Instance.Respawn();
             _currentLife = SaveManager.Instance.Setup.currentPlayerHealth;
             UpdateUI();
         }
