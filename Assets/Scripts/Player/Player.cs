@@ -73,9 +73,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
             {
                 colliders.Add(c);
             }
-        }
-        var clothSetup = ClothManager.Instance.GetSetupByType(playerData.currentClothType);
-        ChangeTexture(clothSetup, 4f);
+        }      
     }
 
     private void Update()

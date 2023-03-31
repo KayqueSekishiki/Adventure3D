@@ -35,6 +35,9 @@ public class EndGame : MonoBehaviour
             item.transform.DOScale(0, .2f).SetEase(Ease.OutBack).From();
         }
 
+        SOPlayerData playerData = Player.Instance.playerData;
+        playerData.currentHealth = 10;
+        playerData.currentClothType = Cloth.ClothType.DEFAULT;
         CheckpointManager.Instance.lastCheckPointKey = 0;
         SaveManager.Instance.SaveLastLevel(currentLevel);
     }

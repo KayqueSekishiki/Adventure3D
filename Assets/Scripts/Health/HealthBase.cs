@@ -21,9 +21,9 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public float recoveryTimeDuration = 2f;
     public bool recoveryEnabled = false;
+    public bool iAmPlayer = false;
 
     private float recoveryCount;
-    private bool iAmPlayer = false;
 
     public float damageMultiply = 1f;
 
@@ -36,7 +36,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         if (iAmPlayer)
         {
-          //  _currentLife = SaveManager.Instance.Setup.currentPlayerHealth;
+            _currentLife = SaveManager.Instance.Setup.currentPlayerHealth;
             UpdateUI();
         }
     }
@@ -64,6 +64,7 @@ public class HealthBase : MonoBehaviour, IDamageable
             if (recoveryCount >= recoveryTimeDuration)
             {
                 _currentLife -= f * damageMultiply;
+                Player.Instance.playerData.currentHealth = _currentLife;
                 ShakeCamera.Instance.Shake();
                 OnDamage?.Invoke(this);
                 recoveryCount = 0;
@@ -72,9 +73,10 @@ public class HealthBase : MonoBehaviour, IDamageable
         else
         {
             _currentLife -= f;
-            ShakeCamera.Instance.Shake();
             OnDamage?.Invoke(this);
         }
+
+
 
 
         if (_currentLife <= 0)

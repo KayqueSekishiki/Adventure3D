@@ -38,13 +38,12 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.coins = 0;
         _saveSetup.lifePacks = 0;
         _saveSetup.currentCheckpoint = 0;
-        //  _saveSetup.currentPlayerHealth = Player.Instance.healthBase.startLife;
+        _saveSetup.currentPlayerHealth = playerData.currentHealth;
         _saveSetup.currentClothType = playerData.currentClothType;
     }
 
 
     #region SAVE
-
 
     public void SaveLastLevel(int level)
     {
@@ -52,7 +51,7 @@ public class SaveManager : Singleton<SaveManager>
         SaveItems();
         SaveLastCheckpoint();
         SaveCurrentPlayerCloth();
-        // SaveCurrentPlayerHealth();
+        SaveCurrentPlayerHealth();
         Save();
     }
 
@@ -66,22 +65,21 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveLastCheckpoint()
     {
         _saveSetup.currentCheckpoint = CheckpointManager.Instance.lastCheckPointKey;
+        SaveItems();
         SaveCurrentPlayerCloth();
-        //SaveCurrentPlayerHealth();
+        SaveCurrentPlayerHealth();
         Save();
     }
 
-    //public void SaveCurrentPlayerHealth()
-    //{
-    //    _saveSetup.currentPlayerHealth = Player.Instance.healthBase.currentLife;
-    //    Save();
-    //}
+    public void SaveCurrentPlayerHealth()
+    {
+        _saveSetup.currentPlayerHealth = playerData.currentHealth;
+        Save();
+    }
 
     public void SaveCurrentPlayerCloth()
     {
-        //_saveSetup.currentClothType = ClothManager.Instance.GetSetupByType(ClothType.DEFAULT).clothType;
         _saveSetup.currentClothType = ClothManager.Instance.GetSetupByType(playerData.currentClothType).clothType;
-
         Save();
     }
 
@@ -130,6 +128,6 @@ public class SaveSetup
     public int coins;
     public int lifePacks;
     public int currentCheckpoint;
-    // public float currentPlayerHealth;
+    public float currentPlayerHealth;
     public ClothType currentClothType;
 }
