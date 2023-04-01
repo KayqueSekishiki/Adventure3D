@@ -10,7 +10,7 @@ public class SaveManager : Singleton<SaveManager>
 {
 
     [SerializeField] private SaveSetup _saveSetup;
-    private string _path = Application.streamingAssetsPath + "/save.txt";
+    private readonly string _path = Application.streamingAssetsPath + "/save.txt";
 
     public int lastLevel;
     public SOPlayerData playerData;

@@ -25,7 +25,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
     private bool _jumping = false;
     private Vector3 _externalVelocity;
     private bool xExternalValid, yExternalValid, zExternalValid;
-    private float _externalVelocityDecrease = 20f;
+    private readonly float _externalVelocityDecrease = 20f;
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
@@ -233,10 +233,10 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
         EffectsManager.Instance.ChangeVignette();
     }
 
-    public void Damage(float damage, Vector3 dir)
-    {
-        // Damage(damage);
-    }
+    //public void Damage(float damage, Vector3 dir)
+    //{
+    //    // Damage(damage);
+    //}
 
     private void OnKill(HealthBase h)
     {

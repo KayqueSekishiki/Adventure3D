@@ -5,8 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneHelper : MonoBehaviour
 {
-  public void LoadLevel(int level)
+    public void LoadLevel()
     {
-        SceneManager.LoadScene(level);
+        int lastLevel = SaveManager.Instance.lastLevel;
+        SceneManager.LoadScene(lastLevel + 1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
+
+
+
+
+
+
+
+
+
