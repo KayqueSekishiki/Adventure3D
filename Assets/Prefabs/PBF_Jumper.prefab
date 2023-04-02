@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa2d4c485c46ed4abe76b7d04573a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxJump: 3
   bounceForce: 50
 --- !u!54 &2276561412835772567
 Rigidbody:

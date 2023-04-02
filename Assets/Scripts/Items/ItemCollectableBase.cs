@@ -15,21 +15,12 @@ namespace Items
         public GameObject grafic;
         public ParticleSystem myParticleSystem;
         public Transform parentVFX;
-        public Transform parentSFX;
-
-        [Header("Sounds")]
-        public AudioSource audioSource;
-
 
         private void Awake()
         {
             if (myParticleSystem != null)
             {
                 myParticleSystem.transform.SetParent(parentVFX);
-            }
-            if (audioSource != null)
-            {
-                audioSource.transform.SetParent(parentSFX);
             }
 
             if (myCollider == null)
@@ -68,12 +59,6 @@ namespace Items
             {
                 myParticleSystem.transform.SetParent(null);
                 myParticleSystem.Play();
-            }
-
-            if (audioSource != null)
-            {
-                audioSource.transform.SetParent(null);
-                audioSource.Play();
             }
         }
 

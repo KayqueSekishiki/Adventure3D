@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
+    public SFXType sfxJump;
     public float bounceForce;
 
     private void OnCollisionEnter(Collision collision)
@@ -16,7 +17,13 @@ public class Jumper : MonoBehaviour
             if (externalVelocity != null)
             {
                 externalVelocity.AddExternalVelocity(bounceForce, Vector3.up);
+                PlaySFXJump();
             }
         }
+    }
+
+    private void PlaySFXJump()
+    {
+        SFXPool.Instance.PlaySFX(sfxJump);
     }
 }

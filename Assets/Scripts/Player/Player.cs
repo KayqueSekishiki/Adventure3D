@@ -29,6 +29,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
+    public SFXType sfxJump;
 
 
     private Animator _animator;
@@ -101,6 +102,7 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
                 {
                     _jumping = true;
                     _animator.SetTrigger("Jump");
+                    PlaySFXJump();
                 }
             }
         }
@@ -222,6 +224,11 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
         this.jumpForce = jumpForce;
         yield return new WaitForSeconds(duration);
         this.jumpForce = defaultJumpForce;
+    }
+
+    private void PlaySFXJump()
+    {
+        SFXPool.Instance.PlaySFX(sfxJump);
     }
 
 

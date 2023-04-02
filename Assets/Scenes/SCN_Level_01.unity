@@ -3051,8 +3051,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 645a7f4bc6e0b414c83101cd3af826d6, type: 3}
   - sfxType: 2
     audioClip: {fileID: 8300000, guid: fb84f647dc197e2439af278755454ebb, type: 3}
-  - sfxType: 0
-    audioClip: {fileID: 0}
+  - sfxType: 3
+    audioClip: {fileID: 8300000, guid: 3ceea5b8be58fbb4da08011b332ca464, type: 3}
   musicSource: {fileID: 0}
   sfxSource: {fileID: 0}
 --- !u!4 &378729294
@@ -8860,6 +8860,7 @@ MonoBehaviour:
   flashColors:
   - {fileID: 1178427744}
   - {fileID: 2019968189}
+  sfxJump: 3
   healthBase: {fileID: 524351106}
   _clothChanger: {fileID: 547174579}
   playerData: {fileID: 11400000, guid: 3899b8ec296f2464d81f1e88f3d1d3b8, type: 2}
@@ -22055,7 +22056,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529364973}
-  m_LocalRotation: {x: 0.000000006077086, y: 0.9522955, z: -0.30517757, w: 0.000000018963327}
+  m_LocalRotation: {x: -0.000000004861378, y: 0.9522955, z: -0.30517754, w: -0.000000015169755}
   m_LocalPosition: {x: -65.98016, y: 22.565222, z: -220.77849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
