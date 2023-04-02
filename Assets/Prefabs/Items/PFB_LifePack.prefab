@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbc518e80fad4440a2278b70b45f5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 2
   itemType: 1
   compateTag: Player
   timeToHide: 2

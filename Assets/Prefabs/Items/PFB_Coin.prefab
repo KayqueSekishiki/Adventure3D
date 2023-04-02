@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2efe6e0b4941544908f6c907ca94a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 1
   itemType: 0
   compateTag: Player
   timeToHide: 1
@@ -70,6 +71,7 @@ MonoBehaviour:
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
   coinValue: 1
+  otherCollider: {fileID: 0}
 --- !u!95 &5822768951712536525
 Animator:
   serializedVersion: 5

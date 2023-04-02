@@ -6,6 +6,7 @@ namespace Items
 {
     public class ItemCollectableBase : MonoBehaviour
     {
+        public SFXType sfxType;
         public ItemType itemType;
 
         public string compateTag = "Player";
@@ -48,6 +49,7 @@ namespace Items
 
         protected virtual void Collect()
         {
+            PlaySFX();
             myCollider.enabled = false;
             grafic.SetActive(false);
             Invoke(nameof(HideItems), timeToHide);
@@ -73,6 +75,11 @@ namespace Items
                 audioSource.transform.SetParent(null);
                 audioSource.Play();
             }
+        }
+
+        private void PlaySFX()
+        {
+            SFXPool.Instance.PlaySFX(sfxType);
         }
     }
 
