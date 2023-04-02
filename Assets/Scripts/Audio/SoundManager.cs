@@ -43,6 +43,7 @@ public class SoundManager : Singleton<SoundManager>
     public void MuteUnmuteSound()
     {
         soundMuted = !soundMuted;
+        UIManager.Instance.ChangeButtonMuteIcon();
         if (soundMuted)
         {
             masterMixer.SetFloat("VolumeMaster", -80f);
