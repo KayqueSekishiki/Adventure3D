@@ -32,6 +32,7 @@ public class SFXPool : Singleton<SFXPool>
         GameObject go = new("SFX_Pool");
         go.transform.SetParent(gameObject.transform);
         _audioSourcesList.Add(go.AddComponent<AudioSource>());
+
     }
 
     public void PlaySFX(SFXType sfxType)

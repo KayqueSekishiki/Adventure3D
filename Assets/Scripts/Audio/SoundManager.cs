@@ -12,6 +12,9 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
+    public AudioMixer masterMixer;
+    private bool soundMuted = false;
+
     public void PlayMusicByType(MusicType musicType)
     {
         var music = GetMusicByType(musicType);
@@ -35,6 +38,20 @@ public class SoundManager : Singleton<SoundManager>
     {
         return sfxSetups.Find(i => i.sfxType == sfxType);
     }
+
+
+    public void MuteUnmuteSound()
+    {
+        soundMuted = !soundMuted;
+        if (soundMuted)
+        {
+            masterMixer.SetFloat("VolumeMaster", -80f);
+        }
+        else
+        {
+            masterMixer.SetFloat("VolumeMaster", 0f);
+        }
+    }
 }
 
 public enum MusicType
@@ -55,9 +72,10 @@ public class MusicSetup
 public enum SFXType
 {
     NONE,
-    TYPE_01,
-    TYPE_02,
-    TYPE_03
+    SFX_COINS,
+    SFX_LIFEPACK,
+    SFX_JUMP,
+    SFX_OPENCHEST
 }
 
 
@@ -67,3 +85,7 @@ public class SFXSetup
     public SFXType sfxType;
     public AudioClip audioClip;
 }
+
+
+
+

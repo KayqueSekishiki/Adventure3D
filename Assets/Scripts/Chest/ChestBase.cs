@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class ChestBase : MonoBehaviour
 {
+
     public KeyCode keyCode = KeyCode.E;
     public Animator animator;
     public string triggerOpen = "Open";
@@ -16,6 +17,10 @@ public class ChestBase : MonoBehaviour
 
     [Space]
     public ChestItemBase chestItem;
+
+    [Header("SFX")]
+    public AudioSource selfAudioSource;
+    public SFXType sfxType;
 
     private float _startScale;
     private bool _chestOpened = false;
@@ -48,7 +53,9 @@ public class ChestBase : MonoBehaviour
         animator.SetTrigger(triggerOpen);
         _chestOpened = true;
         HideNotification();
-        Invoke(nameof(ShowItem), 1f);
+        selfAudioSource.Stop();
+        PlaySFX();
+        Invoke(nameof(ShowItem), 2f);
     }
 
     private void ShowItem()
@@ -99,5 +106,10 @@ public class ChestBase : MonoBehaviour
     private void OnHideNotification()
     {
         notification.SetActive(false);
+    }
+
+    private void PlaySFX()
+    {
+        SFXPool.Instance.PlaySFX(sfxType);
     }
 }
