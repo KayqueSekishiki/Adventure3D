@@ -20,6 +20,7 @@ public class SaveManager : Singleton<SaveManager>
     public SaveSetup Setup { get { return _saveSetup; } }
 
 
+
     protected override void Awake()
     {
         base.Awake();
