@@ -64,5 +64,6 @@ public class EndGame : MonoBehaviour
     private void ReturnToMenu()
     {
         SceneManager.LoadScene(0);
+        SaveManager.Instance.fileLoad = false;
     }
 }

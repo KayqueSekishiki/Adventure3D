@@ -19,7 +19,7 @@ public class SaveManager : Singleton<SaveManager>
     public Action<SaveSetup> FileLoaded;
     public SaveSetup Setup { get { return _saveSetup; } }
 
-
+    public bool fileLoad = false;
 
     protected override void Awake()
     {
@@ -30,6 +30,16 @@ public class SaveManager : Singleton<SaveManager>
     private void Start()
     {
         Invoke(nameof(LoadFile), .1f);
+        fileLoad = true;
+    }
+
+    private void Update()
+    {
+        if (!fileLoad)
+        {
+            LoadGame();
+            fileLoad = true;
+        }
     }
 
     private void CreateNewSave()
@@ -119,7 +129,12 @@ public class SaveManager : Singleton<SaveManager>
         }
 
         FileLoaded.Invoke(_saveSetup);
-    } 
+    }
+
+    public void LoadGame()
+    {
+        LoadFile();
+    }
 }
 
 [System.Serializable]
