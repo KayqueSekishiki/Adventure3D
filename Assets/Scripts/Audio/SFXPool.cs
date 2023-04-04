@@ -38,6 +38,7 @@ public class SFXPool : Singleton<SFXPool>
     public void PlaySFX(SFXType sfxType)
     {
         if (sfxType == SFXType.NONE) return;
+        if (SoundManager.Instance.soundMuted) return;
         var sfx = SoundManager.Instance.GetSFXByType(sfxType);
 
         _audioSourcesList[_index].clip = sfx.audioClip;

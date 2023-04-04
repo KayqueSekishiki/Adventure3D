@@ -13,7 +13,7 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource sfxSource;
 
     public AudioMixer masterMixer;
-    private bool soundMuted = false;
+    public bool soundMuted = false;
 
     public void PlayMusicByType(MusicType musicType)
     {
