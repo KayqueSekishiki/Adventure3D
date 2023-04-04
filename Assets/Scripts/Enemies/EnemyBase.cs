@@ -19,6 +19,8 @@ namespace Enemy
         public float speed = 1f;
         public int powerDamage = 2;
 
+        private bool isAlive = true;
+
         [SerializeField] private float _currentLife;
 
         [Header("Animation")]
@@ -48,6 +50,7 @@ namespace Enemy
 
         public virtual void Update()
         {
+            if (!isAlive) return;
             if (lookAtPlayer)
             {
                 LookToPlayer();
@@ -107,6 +110,7 @@ namespace Enemy
         protected virtual void OnKill()
         {
             if (enemyCollider != null) enemyCollider.enabled = false;
+            isAlive = false;
             Destroy(gameObject, 3f);
             PlayAnimationByTrigger(AnimationType.DEATH);
             OnKillEvent?.Invoke();
