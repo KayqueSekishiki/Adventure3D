@@ -12059,6 +12059,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 1155399936}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1162719930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27.220951
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1396241
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374097, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374102, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3899b8ec296f2464d81f1e88f3d1d3b8, type: 2}
+    - target: {fileID: 4614213473541374102, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: _saveSetup.currentPlayerHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614213473541374103, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
+      propertyPath: m_Name
+      value: PFB_SaveManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edd7ecf0505dc1a4ea972d1145a0d1a1, type: 3}
 --- !u!1001 &1164845940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12952,7 +13017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323011743}
-  m_LocalRotation: {x: 0.15097657, y: 0.7232201, z: -0.16725588, w: 0.65282786}
+  m_LocalRotation: {x: 0.15097281, y: 0.72323483, z: -0.16725929, w: 0.6528116}
   m_LocalPosition: {x: -314.63016, y: 117.12522, z: -385.90848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15066,7 +15131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529364973}
-  m_LocalRotation: {x: -0.000000005250998, y: 0.95229554, z: -0.30517742, w: -0.000000016385558}
+  m_LocalRotation: {x: 0.0000000052509987, y: 0.95229554, z: -0.30517742, w: 0.000000016385561}
   m_LocalPosition: {x: -299.63016, y: 114.12522, z: -378.90848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

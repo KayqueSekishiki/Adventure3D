@@ -128,7 +128,10 @@ public class SaveManager : Singleton<SaveManager>
             Save();
         }
 
-        FileLoaded.Invoke(_saveSetup);
+        if (FileLoaded != null)
+        {
+            FileLoaded.Invoke(_saveSetup);
+        }
     }
 
     public void LoadGame()
