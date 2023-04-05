@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6077135408382353351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6077135408382353349}
+  - component: {fileID: 6077135408382353350}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6077135408382353349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077135408382353351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6077135408382353350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077135408382353351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7983aaad69c0cc42a3cd573585a4ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSetups:
+  - musicType: 0
+    audioClip: {fileID: 8300000, guid: 9874c939c5d0fa347a482389e699fd9a, type: 3}
+  - musicType: 1
+    audioClip: {fileID: 8300000, guid: ddbc4b641efd665489e5059baaeff34e, type: 3}
+  - musicType: 2
+    audioClip: {fileID: 8300000, guid: 1feba3253cff0014d99f40aa568e6c7c, type: 3}
+  sfxSetups:
+  - sfxType: 0
+    audioClip: {fileID: 0}
+  - sfxType: 1
+    audioClip: {fileID: 8300000, guid: 645a7f4bc6e0b414c83101cd3af826d6, type: 3}
+  - sfxType: 2
+    audioClip: {fileID: 8300000, guid: fb84f647dc197e2439af278755454ebb, type: 3}
+  - sfxType: 3
+    audioClip: {fileID: 8300000, guid: 3ceea5b8be58fbb4da08011b332ca464, type: 3}
+  - sfxType: 4
+    audioClip: {fileID: 8300000, guid: 998a8568c594bfd4b8dc024f6eaa5ded, type: 3}
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  masterMixer: {fileID: 24100000, guid: a330d63e524e90b4f81836471d6a7d5c, type: 2}
+  soundMuted: 0
