@@ -25,13 +25,10 @@ public class GunBase : MonoBehaviour
         var projectile = Instantiate(prefabProjectile);
         projectile.transform.SetPositionAndRotation(positionShoot.position, positionShoot.rotation);
         projectile.speed = speed;
-        //projectile.transform.position = positionShoot.position;
-        //projectile.transform.rotation = positionShoot.rotation;
     }
 
     public void StartShoot()
     {
-        StopShoot();
         _currentCoroutine = StartCoroutine(ShootCoroutine());
     }
     public void StopShoot()

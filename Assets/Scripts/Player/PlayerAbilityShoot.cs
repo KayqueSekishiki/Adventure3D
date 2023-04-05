@@ -37,12 +37,10 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         _currentGun.StartShoot();
         flashColor?.Flash();
-        Debug.Log("Start Shoot");
     }
 
     private void CancelShoot()
     {
-        Debug.Log("Cancel Shoot");
         _currentGun.StopShoot();
     }
 }
