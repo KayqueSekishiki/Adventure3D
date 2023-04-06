@@ -1,0 +1,8 @@
+{
+    "lastLevel": 0,
+    "coins": 1,
+    "lifePacks": 0,
+    "currentCheckpoint": 1,
+    "currentPlayerHealth": 2.0,
+    "currentClothType": 0
+}

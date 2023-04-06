@@ -9,8 +9,6 @@ namespace Enemy
         private bool attackMode = false;
         public GunBase gunBase;
 
-   
-
         public override void Update()
         {
             if (Vector3.Distance(transform.position, player.transform.position) <= lookRadius)

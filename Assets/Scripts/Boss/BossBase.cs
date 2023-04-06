@@ -150,7 +150,7 @@ namespace Boss
             StartCoroutine(StartAttackCoroutine(endCallback));
         }
 
-        IEnumerator StartAttackCoroutine(Action endCallback)
+        public virtual IEnumerator StartAttackCoroutine(Action endCallback)
         {
             int attacks = 0;
             while (attacks < attackAmount)

@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Animation;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.Tweening;
-using Animation;
 
 namespace Enemy
 {
