@@ -9,12 +9,7 @@ namespace Enemy
         private bool attackMode = false;
         public GunBase gunBase;
 
-        protected override void Init()
-        {
-            base.Init();
-
-            // gunBase.StartShoot();
-        }
+   
 
         public override void Update()
         {
