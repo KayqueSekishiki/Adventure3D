@@ -11,6 +11,8 @@ public class GunBase : MonoBehaviour
 
     private Coroutine _currentCoroutine;
 
+    public bool waitingForShoot = false;
+
     protected virtual IEnumerator ShootCoroutine()
     {
         while (true)
@@ -33,6 +35,30 @@ public class GunBase : MonoBehaviour
     }
     public void StopShoot()
     {
-        if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
+        if (_currentCoroutine != null)
+        {
+            StopCoroutine(_currentCoroutine);
+            StartWaitForShoot();
+        }
+    }
+
+    private void StartWaitForShoot()
+    {
+        waitingForShoot = true;
+        StartCoroutine(WaitForShoot());
+    }
+
+    IEnumerator WaitForShoot()
+    {
+        float time = 0;
+
+        while (time < timeBetweenShoot)
+        {
+            time += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        waitingForShoot = false;
     }
 }

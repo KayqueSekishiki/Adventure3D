@@ -13,6 +13,7 @@ public class GunShootLimit : GunBase
     private float _currentShoots;
     private bool _recharging = false;
 
+
     private void Awake()
     {
         if (updateUIs)
@@ -24,6 +25,7 @@ public class GunShootLimit : GunBase
     protected override IEnumerator ShootCoroutine()
     {
         if (_recharging) yield break;
+        if (waitingForShoot) yield break;
 
         while (true)
         {
