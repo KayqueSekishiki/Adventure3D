@@ -1,6 +1,6 @@
 {
     "lastLevel": 0,
-    "coins": 11,
+    "coins": 18,
     "lifePacks": 0,
     "currentCheckpoint": 1,
     "currentPlayerHealth": 2.0,

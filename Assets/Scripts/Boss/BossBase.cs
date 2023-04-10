@@ -29,7 +29,7 @@ namespace Boss
         public List<Transform> waypoints;
 
         [Header("Attack")]
-        public int attackAmount = 5;
+        public int maxAttackAmount = 5;
         public float timeBetweenAttacks = .5f;
 
         [Header("References")]
@@ -153,14 +153,21 @@ namespace Boss
         public virtual IEnumerator StartAttackCoroutine(Action endCallback)
         {
             int attacks = 0;
-            while (attacks < attackAmount)
+            int randmAttacks = UnityEngine.Random.Range(1, maxAttackAmount + 1);
+            while (attacks < randmAttacks)
             {
                 attacks++;
-                transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
+                BossAttack();
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
 
             endCallback?.Invoke();
+        }
+
+        public virtual void BossAttack()
+        {
+            Debug.Log("Ataquei o Jogador!");
+            transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
         }
 
         #endregion

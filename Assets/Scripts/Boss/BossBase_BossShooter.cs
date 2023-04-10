@@ -9,26 +9,23 @@ namespace Boss
 {
     public class BossBase_BossShooter : BossBase
     {
+        public GameObject bossBulletPrefab;
 
-        public GunBase gunBase;
-
-        #region ATTACK  
-        public override IEnumerator StartAttackCoroutine(Action endCallback)
+        public override void BossAttack()
         {
-            int attacks = 0;
-            while (attacks < attackAmount)
+            int AttackMove = UnityEngine.Random.Range(1, 3);
+
+            if (AttackMove == 1)
             {
-                attacks++;
+                Debug.Log("Atirar");
                 transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
-                gunBase.StartShoot();
-                gunBase.StopShoot();
-                yield return new WaitForSeconds(timeBetweenAttacks);
             }
 
-            endCallback?.Invoke();
+            if (AttackMove == 2)
+            {
+                Debug.Log("Atropelar");
+            }
         }
-
-        #endregion
     }
 
 }
