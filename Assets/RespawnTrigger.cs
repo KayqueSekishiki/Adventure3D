@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class RespawnTrigger : MonoBehaviour
 {
-    LoadSceneHelper loadSceneHelper;
-    private void Start()
-    {
-        FindObjectOfType<LoadSceneHelper>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
