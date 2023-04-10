@@ -11,13 +11,12 @@ namespace Boss
     {
         public ProjectileBase bossBulletPrefab;
         public Transform shootPosition;
-        public float shootSpeed = 30f;
-
+        public float shootSpeed = 20f;
 
         public override void Update()
         {
             base.Update();
-            shootPosition.DORotate(target.position, .2f);
+            shootPosition.DORotate(target.position, .1f);
         }
 
         public override void BossAttack()
@@ -57,7 +56,7 @@ namespace Boss
 
             Vector3 targetPosition = target.transform.position;
             targetPosition.y = transform.position.y;
-            transform.DOMove(targetPosition, 3f);
+            transform.DOMove(targetPosition, 1.5f).SetEase(Ease.Linear);
         }
     }
 

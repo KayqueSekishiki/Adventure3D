@@ -31,6 +31,7 @@ namespace Boss
         [Header("Attack")]
         public int maxAttackAmount = 5;
         public float timeBetweenAttacks = .5f;
+        public int onColisionDamage = 2;
 
         [Header("References")]
         public HealthBase healthBase;
@@ -44,7 +45,6 @@ namespace Boss
 
         public bool bossSpawned = false;
         private bool _attackMode = false;
-
 
 
         private void OnValidate()
@@ -99,6 +99,27 @@ namespace Boss
                 bossCamera.SetActive(false);
             }
 
+        }
+
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Player p = collision.transform.GetComponent<Player>();
+
+            Debug.Log("Colidir com algo!");
+
+            if (p != null)
+            {
+
+                Debug.Log("Esse algo foi o jogador!");
+
+                p.healthBase.Damage(onColisionDamage);
+                IAddExternalVelocity externalVelocity = collision.transform.GetComponent<IAddExternalVelocity>();
+                if (externalVelocity != null)
+                {
+                    externalVelocity.AddExternalVelocity(20f, p.transform.position - transform.position);
+                }
+            }
         }
 
         private void Init()
