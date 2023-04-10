@@ -11,7 +11,14 @@ namespace Boss
     {
         public ProjectileBase bossBulletPrefab;
         public Transform shootPosition;
-        public float shootSpeed = 10f; 
+        public float shootSpeed = 30f;
+
+
+        public override void Update()
+        {
+            base.Update();
+            shootPosition.DORotate(target.position, .2f);
+        }
 
         public override void BossAttack()
         {
@@ -21,30 +28,36 @@ namespace Boss
             {
                 Debug.Log("Atirar");
                 ShootAttack();
-                transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
             }
 
             if (AttackMove == 2)
             {
                 Debug.Log("Atropelar");
                 TrampleAttack();
-                transform.DOScale(1.2f, timeBetweenAttacks).SetLoops(2, LoopType.Yoyo);
-
             }
         }
 
 
+
+
         public void ShootAttack()
         {
+            transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
             var projectile = Instantiate(bossBulletPrefab, shootPosition);
             projectile.transform.SetPositionAndRotation(shootPosition.position, shootPosition.rotation);
             projectile.speed = shootSpeed;
+
+            //projectile.transform.Translate(shootSpeed * Time.deltaTime * Vector3.forward);
 
         }
 
         public void TrampleAttack()
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.Instance.transform.position, Time.deltaTime * speed * 3);
+            transform.DOScale(1.2f, timeBetweenAttacks / 2).SetLoops(2, LoopType.Yoyo);
+
+            Vector3 targetPosition = target.transform.position;
+            targetPosition.y = transform.position.y;
+            transform.DOMove(targetPosition, 3f);
         }
     }
 

@@ -1136,13 +1136,13 @@ MonoBehaviour:
   timeBetweenAttacks: 0.5
   healthBase: {fileID: 7285092823971209722}
   lookRadius: 80
-  attackRadius: 50
+  attackRadius: 70
   target: {fileID: 0}
   bossCamera: {fileID: 0}
   bossSpawned: 0
-  bossBulletPrefab: {fileID: 0}
-  shootPosition: {fileID: 0}
-  shootSpeed: 10
+  bossBulletPrefab: {fileID: 2339263240190511265, guid: 8d104631151708b4c8266ef2270e9555, type: 3}
+  shootPosition: {fileID: 7016561358209278739}
+  shootSpeed: 30
 --- !u!1 &7285092824207880928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,8 +1489,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949704694293119377}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.5, y: 6, z: 5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 6, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

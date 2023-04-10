@@ -63,7 +63,7 @@ namespace Boss
             target = FindObjectOfType<Player>().transform;
         }
 
-        private void Update()
+        public virtual void Update()
         {
             float distance = Vector3.Distance(target.position, transform.position);
 
