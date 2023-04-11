@@ -13,41 +13,33 @@ namespace Boss
         public Transform shootPosition;
         public float shootSpeed = 20f;
 
-        public override void Update()
-        {
-            base.Update();
-            shootPosition.DORotate(target.position, .1f);
-        }
-
         public override void BossAttack()
         {
             int AttackMove = UnityEngine.Random.Range(1, 3);
 
-            if (AttackMove == 1)
+            switch (AttackMove)
             {
-                Debug.Log("Atirar");
-                ShootAttack();
-            }
+                case 1:
+                    ShootAttack();
+                    break;
 
-            if (AttackMove == 2)
-            {
-                Debug.Log("Atropelar");
-                TrampleAttack();
+                case 2:
+                    TrampleAttack();
+                    break;
+
+                default:
+                    break;
             }
         }
-
-
-
 
         public void ShootAttack()
         {
             transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
             var projectile = Instantiate(bossBulletPrefab, shootPosition);
-            projectile.transform.SetPositionAndRotation(shootPosition.position, shootPosition.rotation);
+            projectile.transform.position = shootPosition.position;
+            Transform lookAtTarget = Player.Instance.transform;
+            projectile.transform.LookAt(lookAtTarget);
             projectile.speed = shootSpeed;
-
-            //projectile.transform.Translate(shootSpeed * Time.deltaTime * Vector3.forward);
-
         }
 
         public void TrampleAttack()
@@ -56,7 +48,7 @@ namespace Boss
 
             Vector3 targetPosition = target.transform.position;
             targetPosition.y = transform.position.y;
-            transform.DOMove(targetPosition, 1.5f).SetEase(Ease.Linear);
+            transform.DOMove(targetPosition, .5f).SetEase(Ease.Linear);
         }
     }
 

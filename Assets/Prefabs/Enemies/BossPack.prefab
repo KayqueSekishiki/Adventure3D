@@ -1091,8 +1091,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 12, y: 12, z: 12}
+  m_Center: {x: 0, y: 6, z: 0}
 --- !u!114 &7285092823971209722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,6 +1134,7 @@ MonoBehaviour:
   - {fileID: 7285092824859759824}
   maxAttackAmount: 5
   timeBetweenAttacks: 0.5
+  onColisionDamage: 2
   healthBase: {fileID: 7285092823971209722}
   lookRadius: 80
   attackRadius: 70

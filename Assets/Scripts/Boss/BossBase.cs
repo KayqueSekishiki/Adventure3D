@@ -101,23 +101,17 @@ namespace Boss
 
         }
 
-
         private void OnCollisionEnter(Collision collision)
         {
             Player p = collision.transform.GetComponent<Player>();
 
-            Debug.Log("Colidir com algo!");
-
             if (p != null)
             {
-
-                Debug.Log("Esse algo foi o jogador!");
-
                 p.healthBase.Damage(onColisionDamage);
                 IAddExternalVelocity externalVelocity = collision.transform.GetComponent<IAddExternalVelocity>();
                 if (externalVelocity != null)
                 {
-                    externalVelocity.AddExternalVelocity(20f, p.transform.position - transform.position);
+                    externalVelocity.AddExternalVelocity(10f, p.transform.position - transform.position);
                 }
             }
         }

@@ -29464,11 +29464,11 @@ PrefabInstance:
       objectReference: {fileID: 610255496}
     - target: {fileID: 7533002173010172378, guid: f320d36a2f0eddc4d9cfb6df08b69777, type: 3}
       propertyPath: shootSpeed
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7533002173010172378, guid: f320d36a2f0eddc4d9cfb6df08b69777, type: 3}
       propertyPath: maxAttackAmount
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f320d36a2f0eddc4d9cfb6df08b69777, type: 3}

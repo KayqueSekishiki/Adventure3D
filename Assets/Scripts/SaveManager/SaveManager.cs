@@ -106,9 +106,6 @@ public class SaveManager : Singleton<SaveManager>
 
     private void SaveFile(string json)
     {
-        string fileLoaded;
-        if (File.Exists(_path)) fileLoaded = File.ReadAllText(_path);
-        Debug.Log(_path);
         File.WriteAllText(_path, json);
     }
 
