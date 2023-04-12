@@ -17,6 +17,8 @@ namespace Enemy
         public float speed = 1f;
         public int powerDamage = 2;
 
+        public UIFillUpdater uiFillUpdater;
+
         private bool isAlive = true;
 
         [SerializeField] private float _currentLife;
@@ -73,11 +75,11 @@ namespace Enemy
         protected void ResetLife()
         {
             _currentLife = startLife;
+            UpdateUI();
         }
 
         public void Damage(float damage) // IDamageable
         {
-            Debug.Log("Damage");
             OnDamage(damage);
         }
 
@@ -93,6 +95,7 @@ namespace Enemy
             if (EnemyParticleSystem != null) EnemyParticleSystem.Emit(15);
 
             _currentLife -= f;
+            UpdateUI();
 
             if (_currentLife <= 0)
             {
@@ -126,6 +129,15 @@ namespace Enemy
                 {
                     externalVelocity.AddExternalVelocity(20f, p.transform.position - transform.position);
                 }
+            }
+        }
+
+
+        private void UpdateUI()
+        {
+            if (uiFillUpdater != null)
+            {
+                uiFillUpdater.UpdateValue((float)_currentLife / startLife);
             }
         }
 

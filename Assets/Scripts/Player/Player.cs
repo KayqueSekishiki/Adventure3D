@@ -79,6 +79,8 @@ public class Player : Singleton<Player>, IAddExternalVelocity   //, IDamageable
 
     private void Update()
     {
+        if (!_alive) return;
+
         transform.Rotate(0, Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime, 0);
 
         var inputAxisVertical = Input.GetAxis("Vertical");
