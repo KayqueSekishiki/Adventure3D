@@ -26,6 +26,9 @@ public class HealthBase : MonoBehaviour, IDamageable
     private float recoveryCount;
 
     public float damageMultiply = 1f;
+    public FlashColor flashColor;
+
+    public Canvas canvas;
 
 
     private void Start()
@@ -42,6 +45,11 @@ public class HealthBase : MonoBehaviour, IDamageable
     private void Update()
     {
         if (recoveryEnabled == true) recoveryCount += Time.deltaTime;
+        if (canvas != null)
+        {
+            Quaternion rot = new (0, 180, 0, 1);
+           canvas.transform.rotation = rot;
+        }
     }
 
     protected virtual void Init()
@@ -100,6 +108,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void Damage(float damage, Vector3 dir)
     {
         Damage(damage);
+        flashColor?.Flash();
     }
 
     private void UpdateUI()
@@ -113,7 +122,6 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void ChangeDamageMultiply(float damageMultiply, float duration)
     {
         StartCoroutine(ChangeDamageMultiplyCoroutine(damageMultiply, duration));
-
     }
 
     IEnumerator ChangeDamageMultiplyCoroutine(float damageMultiply, float duration)
@@ -123,6 +131,4 @@ public class HealthBase : MonoBehaviour, IDamageable
         this.damageMultiply = 1f;
 
     }
-
-
 }
