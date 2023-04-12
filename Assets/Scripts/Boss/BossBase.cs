@@ -32,6 +32,9 @@ namespace Boss
         public int maxAttackAmount = 5;
         public float timeBetweenAttacks = .5f;
         public int onColisionDamage = 2;
+        public float bossChargeDelay = 1f;
+        public float bossChargeSpeed = 20f;
+        public bool charging = false;
 
         [Header("References")]
         public HealthBase healthBase;
@@ -65,6 +68,8 @@ namespace Boss
 
         public virtual void Update()
         {
+            if (charging) return;
+
             float distance = Vector3.Distance(target.position, transform.position);
 
             if (!bossSpawned)
@@ -172,17 +177,34 @@ namespace Boss
             while (attacks < randmAttacks)
             {
                 attacks++;
-                BossAttack();
+                Debug.Log("Ataquei o Jogador!");
+                transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
 
             endCallback?.Invoke();
         }
 
-        public virtual void BossAttack()
+        public void ChargeBehaviour(Action callback = null)
         {
-            Debug.Log("Ataquei o Jogador!");
-            transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
+            charging = true;
+            StartCoroutine(BossChargeCoroutine(callback));
+        }
+
+        private IEnumerator BossChargeCoroutine(Action callback = null)
+        {
+            Vector3 playerPosition = Player.Instance.transform.position;
+            playerPosition.y = transform.position.y;
+            transform.LookAt(playerPosition);
+            yield return new WaitForSeconds(bossChargeDelay);
+
+            while (Vector3.Distance(transform.position, playerPosition) > 0.1f)
+            {
+                transform.Translate(Vector3.forward * bossChargeSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            callback?.Invoke();
         }
 
         #endregion

@@ -13,23 +13,36 @@ namespace Boss
         public Transform shootPosition;
         public float shootSpeed = 20f;
 
-        public override void BossAttack()
+
+        public override IEnumerator StartAttackCoroutine(Action endCallback)
         {
             int AttackMove = UnityEngine.Random.Range(1, 3);
 
             switch (AttackMove)
             {
                 case 1:
-                    ShootAttack();
+                    int attacks = 0;
+                    int randmAttacks = UnityEngine.Random.Range(1, maxAttackAmount + 1);
+                    while (attacks < randmAttacks)
+                    {
+                        attacks++;
+                        Debug.Log("Atirei no Jogador");
+                        ShootAttack();
+                        yield return new WaitForSeconds(timeBetweenAttacks);
+                    }
                     break;
 
                 case 2:
-                    TrampleAttack();
+                    Debug.Log("Atropelar");
+                    ChargeBehaviour();
+                    charging = false;
                     break;
 
                 default:
                     break;
             }
+
+            endCallback?.Invoke();
         }
 
         public void ShootAttack()
@@ -40,15 +53,6 @@ namespace Boss
             Transform lookAtTarget = Player.Instance.transform;
             projectile.transform.LookAt(lookAtTarget);
             projectile.speed = shootSpeed;
-        }
-
-        public void TrampleAttack()
-        {
-            transform.DOScale(1.2f, timeBetweenAttacks / 2).SetLoops(2, LoopType.Yoyo);
-
-            Vector3 targetPosition = target.transform.position;
-            targetPosition.y = transform.position.y;
-            transform.DOMove(targetPosition, .5f).SetEase(Ease.Linear);
         }
     }
 

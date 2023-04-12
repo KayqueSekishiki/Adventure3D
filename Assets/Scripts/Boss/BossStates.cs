@@ -73,4 +73,13 @@ namespace Boss
             boss.transform.localScale = .2f * Vector3.one;
         }
     }
+
+    public class BossStateCharge : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
+            boss.ChargeBehaviour(delegate () { boss.SwitchWalk(); });
+        }
+    }
 }
