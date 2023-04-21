@@ -52,7 +52,7 @@ namespace Boss
             Transform lookAtTarget = Player.Instance.transform;
             projectile.transform.LookAt(lookAtTarget);
             projectile.speed = shootSpeed;
-        }   
+        }
     }
 
 }
