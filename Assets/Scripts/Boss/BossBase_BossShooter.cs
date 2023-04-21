@@ -34,8 +34,7 @@ namespace Boss
 
                 case 2:
                     Debug.Log("Atropelar");
-                    ChargeBehaviour();
-                    charging = false;
+                    SwitchState(BossAction.CHARGE);
                     break;
 
                 default:
@@ -53,7 +52,7 @@ namespace Boss
             Transform lookAtTarget = Player.Instance.transform;
             projectile.transform.LookAt(lookAtTarget);
             projectile.speed = shootSpeed;
-        }
+        }   
     }
 
 }

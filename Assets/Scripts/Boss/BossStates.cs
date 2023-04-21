@@ -79,7 +79,12 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            boss.ChargeBehaviour(delegate () { boss.SwitchWalk(); });
+            boss.ChargeBehaviour(EndAttacks);
+        }
+
+        private void EndAttacks()
+        {
+            boss.SwitchState(BossAction.WALK);
         }
     }
 }

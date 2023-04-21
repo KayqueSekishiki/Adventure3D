@@ -13,7 +13,8 @@ namespace Boss
         IDLE,
         WALK,
         ATTACK,
-        DEATH
+        DEATH,
+        CHARGE
     }
 
     public class BossBase : MonoBehaviour
@@ -130,6 +131,7 @@ namespace Boss
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
             stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
             stateMachine.RegisterStates(BossAction.DEATH, new BossStateDeath());
+            stateMachine.RegisterStates(BossAction.CHARGE, new BossStateCharge());
         }
 
         private void OnBossKill(HealthBase h)
@@ -204,6 +206,8 @@ namespace Boss
                 yield return null;
             }
 
+            charging = false;
+
             callback?.Invoke();
         }
 
@@ -233,6 +237,13 @@ namespace Boss
         public void SwitchAttack()
         {
             SwitchState(BossAction.ATTACK);
+        }
+
+
+        [NaughtyAttributes.Button]
+        public void SwitchDash()
+        {
+            SwitchState(BossAction.CHARGE);
         }
 
         #endregion
