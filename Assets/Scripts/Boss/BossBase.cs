@@ -200,14 +200,23 @@ namespace Boss
             transform.LookAt(playerPosition);
             yield return new WaitForSeconds(bossChargeDelay);
 
-            while (Vector3.Distance(transform.position, playerPosition) > 0.1f)
+            float animationTime = Vector3.Distance(transform.position, playerPosition) / bossChargeSpeed;
+            Vector3 direction = playerPosition - transform.position;
+            Vector3 initialPosition = transform.position;
+            float lenght = direction.magnitude;
+            direction.Normalize();
+            float timeCounter = 0;
+
+
+            while (timeCounter < animationTime)
             {
-                transform.Translate(Vector3.forward * bossChargeSpeed * Time.deltaTime);
                 yield return null;
+                timeCounter += Time.deltaTime;
+                transform.position = initialPosition + direction * lenght * (timeCounter / animationTime);
             }
 
+            transform.position = playerPosition;
             charging = false;
-
             callback?.Invoke();
         }
 
